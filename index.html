@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>特列努尔 | Java后端开发</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      background: #0a0a0f;
+      color: #e0e0e0;
+      line-height: 1.8;
+    }
+    
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 60px 24px;
+    }
+    
+    /* Header */
+    .header {
+      display: flex;
+      gap: 32px;
+      align-items: flex-start;
+      margin-bottom: 60px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      flex-shrink: 0;
+    }
+    
+    .header-info h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    
+    .header-info .title {
+      color: #667eea;
+      font-size: 16px;
+      margin-bottom: 12px;
+    }
+    
+    .contact-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 14px;
+      color: #888;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    
+    /* Section */
+    .section {
+      margin-bottom: 48px;
+    }
+    
+    .section-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #667eea;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(102,126,234,0.3);
+    }
+    
+    /* Cards */
+    .card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 16px;
+      transition: all 0.3s;
+    }
+    
+    .card:hover {
+      border-color: rgba(102,126,234,0.4);
+      background: rgba(255,255,255,0.05);
+    }
+    
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+    }
+    
+    .card h3 {
+      font-size: 16px;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    
+    .card .subtitle {
+      font-size: 13px;
+      color: #666;
+    }
+    
+    .card .time {
+      font-size: 12px;
+      color: #555;
+      white-space: nowrap;
+    }
+    
+    .card p {
+      font-size: 14px;
+      color: #999;
+      margin-bottom: 10px;
+    }
+    
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    
+    .tag {
+      padding: 4px 12px;
+      background: rgba(102,126,234,0.15);
+      color: #667eea;
+      border-radius: 20px;
+      font-size: 12px;
+    }
+    
+    /* Skills */
+    .skill-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    
+    .skill-item {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 8px;
+      padding: 14px 16px;
+      font-size: 14px;
+    }
+    
+    .skill-item strong {
+      color: #667eea;
+    }
+    
+    .skill-item span {
+      color: #777;
+      font-size: 12px;
+    }
+    
+    /* Experience */
+    .exp-item {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    
+    .exp-time {
+      font-size: 12px;
+      color: #555;
+      width: 70px;
+      flex-shrink: 0;
+      padding-top: 2px;
+      text-align: right;
+    }
+    
+    .exp-content {
+      flex: 1;
+      border-left: 2px solid rgba(102,126,234,0.3);
+      padding-left: 16px;
+      position: relative;
+    }
+    
+    .exp-content::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: #667eea;
+      border-radius: 50%;
+      position: absolute;
+      left: -5px;
+      top: 5px;
+    }
+    
+    .exp-content h4 {
+      color: #fff;
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+    
+    .exp-content p {
+      color: #777;
+      font-size: 13px;
+    }
+    
+    /* CTA */
+    .cta {
+      text-align: center;
+      padding: 40px;
+      background: linear-gradient(135deg, rgba(102,126,234,0.1), rgba(118,75,162,0.1));
+      border: 1px solid rgba(102,126,234,0.2);
+      border-radius: 12px;
+      margin-top: 40px;
+    }
+    
+    .cta h2 {
+      color: #fff;
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+    
+    .cta p {
+      color: #666;
+      font-size: 14px;
+    }
+    
+    .cta .email {
+      color: #667eea;
+      font-size: 18px;
+      margin-top: 16px;
+      font-weight: 600;
+    }
+
+    /* Project cards */
+    .project-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 16px;
+    }
+    
+    .project-card h3 {
+      color: #fff;
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+    
+    .project-card .project-tech {
+      color: #667eea;
+      font-size: 12px;
+      margin-bottom: 12px;
+    }
+    
+    .project-card ul {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .project-card ul li {
+      color: #999;
+      font-size: 14px;
+      padding: 4px 0;
+      padding-left: 16px;
+      position: relative;
+    }
+    
+    .project-card ul li::before {
+      content: '▸';
+      color: #667eea;
+      position: absolute;
+      left: 0;
+    }
+
+    @media (max-width: 600px) {
+      .header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .contact-list {
+        justify-content: center;
+      }
+      .skill-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <div class="header">
+      <div class="avatar">🦔</div>
+      <div class="header-info">
+        <h1>特列努尔</h1>
+        <div class="title">Java后端开发 · 南京邮电大学</div>
+        <div class="contact-list">
+          <span class="contact-item">📱 18799297991</span>
+          <span class="contact-item">📧 2373093434@qq.com</span>
+          <span class="contact-item">🏠 南京</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- About -->
+    <div class="section">
+      <div class="section-title">关于我</div>
+      <div class="card">
+        <p style="color:#999;font-size:14px;margin:0;">
+          大一学生，有完整的全栈项目落地经验。能独立完成前端页面开发、后端接口实现、数据库设计。具备 AI 辅助编程能力，接入 LLM API（硅基流动 Qwen）开发智能功能。暑假希望找到 <strong style="color:#667eea">Java 后端实习</strong>，在真实项目中积累经验。
+        </p>
+      </div>
+    </div>
+
+    <!-- Skills -->
+    <div class="section">
+      <div class="section-title">技术栈</div>
+      <div class="skill-grid">
+        <div class="skill-item">
+          <strong>Java</strong><br>
+          <span>Spring Boot · MyBatis · JDBC</span>
+        </div>
+        <div class="skill-item">
+          <strong>前端</strong><br>
+          <span>Vue3 · Element Plus</span>
+        </div>
+        <div class="skill-item">
+          <strong>数据库</strong><br>
+          <span>MySQL · H2</span>
+        </div>
+        <div class="skill-item">
+          <strong>AI集成</strong><br>
+          <span>硅基流动API · Coze</span>
+        </div>
+        <div class="skill-item">
+          <strong>工具</strong><br>
+          <span>Git · Maven · IDEA</span>
+        </div>
+        <div class="skill-item">
+          <strong>其他</strong><br>
+          <span>Nginx · Linux · Docker</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Experience -->
+    <div class="section">
+      <div class="section-title">经历</div>
+      
+      <div class="exp-item">
+        <div class="exp-time">2026.04</div>
+        <div class="exp-content">
+          <h4>计算机设计大赛 · 老人信息管理系统</h4>
+          <p>独立完成 Java 后端开发，提供 5 个 REST API 接口（增删改查）</p>
+        </div>
+      </div>
+      
+      <div class="exp-item">
+        <div class="exp-time">2026.05</div>
+        <div class="exp-content">
+          <h4>中兴捧月 · 校园课程助手智能体</h4>
+          <p>独立完成前后端开发，接入硅基流动 Qwen2.5-7B 实现AI对话功能</p>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-time">2026.05</div>
+        <div class="exp-content">
+          <h4>星火工作室考核 · CStudyMate C语言AI学伴</h4>
+          <p>独立完成前后端全栈开发，Vue3 + Spring Boot + H2 + LLM API</p>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-time">2026.03</div>
+        <div class="exp-content">
+          <h4>TLIAS 智能学习平台</h4>
+          <p>Spring Boot + Vue3 + JWT + MySQL，独立完成前后端联调</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Projects -->
+    <div class="section">
+      <div class="section-title">项目展示</div>
+      
+      <div class="project-card">
+        <h3>CStudyMate · C语言AI学伴</h3>
+        <div class="project-tech">Java 17 / Spring Boot / Vue3 / MyBatis / H2 / 硅基流动API</div>
+        <ul>
+          <li>前端 Vue3 + Element Plus，后端 Spring Boot + MyBatis</li>
+          <li>接入硅基流动 Qwen2.5-7B，AI强制结构化输出（📌概念/🔧原理/💻代码/⚠️易错点）</li>
+          <li>完成功能：AI智能问答、练习中心、学情统计、问答历史</li>
+        </ul>
+      </div>
+
+      <div class="project-card">
+        <h3>中兴捧月 · 校园课程助手智能体</h3>
+        <div class="project-tech">Vue3 / Element Plus / Spring Boot / LLM API</div>
+        <ul>
+          <li>独立完成前端页面 + 后端接口 + 数据库</li>
+          <li>接入硅基流动 Qwen2.5-7B，实现AI课程问答</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Education -->
+    <div class="section">
+      <div class="section-title">教育背景</div>
+      <div class="card" style="padding:20px 24px;">
+        <div class="card-header" style="margin-bottom:0;">
+          <div>
+            <h3 style="margin-bottom:4px;">南京邮电大学</h3>
+            <div class="subtitle">物联网学院 · 网络工程 · 2024级</div>
+          </div>
+          <div style="text-align:right;">
+            <div style="font-size:13px;color:#667eea;">GPA 3.15</div>
+            <div style="font-size:12px;color:#555;">英语四级</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta">
+      <h2>📬 联系我</h2>
+      <p>欢迎交流项目合作 or 实习机会</p>
+      <div class="email">2373093434@qq.com</div>
+      <p style="margin-top:12px;font-size:12px;color:#444;">手机：18799297991</p>
+    </div>
+
+  </div>
+</body>
+</html>
