@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>特列努尔 | Java后端开发实习生</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif; background: #f5f5f5; color: #333; line-height: 1.8; }
+    .container { max-width: 800px; margin: 40px auto; background: #fff; padding: 50px 60px; box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
+    
+    /* Header */
+    .header { border-bottom: 2px solid #1a1a2e; padding-bottom: 24px; margin-bottom: 32px; }
+    .name { font-size: 30px; font-weight: 700; color: #1a1a2e; margin-bottom: 6px; }
+    .tagline { color: #555; font-size: 15px; margin-bottom: 12px; }
+    .contacts { display: flex; flex-wrap: wrap; gap: 18px; font-size: 14px; color: #666; }
+    .contacts span { display: flex; align-items: center; gap: 5px; }
+    
+    /* Section */
+    .section { margin-bottom: 28px; }
+    .section-title { font-size: 16px; font-weight: 700; color: #1a1a2e; border-left: 4px solid #1a1a2e; padding-left: 10px; margin-bottom: 14px; text-transform: uppercase; letter-spacing: 1px; }
+    
+    /* Items */
+    .item { margin-bottom: 18px; }
+    .item-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; }
+    .item h3 { font-size: 15px; color: #222; }
+    .item .meta { font-size: 13px; color: #888; }
+    .item p { font-size: 14px; color: #555; }
+    
+    /* Skills */
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .skill-tag { background: #f0f0f0; color: #444; padding: 4px 12px; border-radius: 4px; font-size: 13px; }
+    .skill-group { margin-bottom: 10px; }
+    .skill-group-title { font-size: 13px; color: #888; margin-bottom: 6px; }
+    
+    /* Exp items */
+    .exp-item { display: flex; gap: 14px; margin-bottom: 16px; }
+    .exp-time { font-size: 12px; color: #999; width: 60px; flex-shrink: 0; padding-top: 2px; }
+    .exp-content { flex: 1; border-left: 2px solid #ddd; padding-left: 14px; position: relative; }
+    .exp-content::before { content: ''; width: 8px; height: 8px; background: #1a1a2e; border-radius: 50%; position: absolute; left: -5px; top: 5px; }
+    .exp-content h4 { font-size: 14px; color: #222; margin-bottom: 3px; }
+    .exp-content p { font-size: 13px; color: #666; }
+    
+    /* Footer */
+    .footer { text-align: center; padding-top: 24px; border-top: 1px solid #eee; margin-top: 24px; }
+    .footer p { font-size: 13px; color: #999; }
+    .footer .portfolio-link { color: #1a1a2e; font-weight: 600; text-decoration: none; }
+    
+    /* Project */
+    .project-tech { font-size: 12px; color: #888; margin-bottom: 6px; }
+    .project-desc { font-size: 13px; color: #555; }
+    .project-desc li { margin-bottom: 3px; }
+    
+    /* Objective */
+    .objective { background: #f8f8fc; border-radius: 8px; padding: 16px 20px; border: 1px solid #e8e8f0; }
+    .objective-text { font-size: 14px; color: #444; }
+    
+    @media (max-width: 600px) {
+      .container { padding: 30px 24px; margin: 20px; }
+      .contacts { flex-direction: column; gap: 6px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <div class="header">
+      <div class="name">特列努尔</div>
+      <div class="tagline">Java后端开发实习生</div>
+      <div class="contacts">
+        <span>📱 18799297991</span>
+        <span>📧 2373093434@qq.com</span>
+        <span>🏠 南京</span>
+        <span>🔗 <a href="https://teku715.github.io/portfolio/" style="color:#555;">作品集网站</a></span>
+      </div>
+    </div>
+
+    <!-- Objective -->
+    <div class="section">
+      <div class="section-title">求职意向</div>
+      <div class="objective">
+        <div class="objective-text">🎯 <strong>Java后端开发实习生</strong> | 南京 | 可远程</div>
+      </div>
+    </div>
+
+    <!-- Education -->
+    <div class="section">
+      <div class="section-title">教育背景</div>
+      <div class="item">
+        <div class="item-header">
+          <h3>南京邮电大学</h3>
+          <span class="meta">2024级 · 大一下</span>
+        </div>
+        <p>物联网学院 · 网络工程 &nbsp;|&nbsp; GPA 3.15 &nbsp;|&nbsp; 英语四级</p>
+      </div>
+    </div>
+
+    <!-- Skills -->
+    <div class="section">
+      <div class="section-title">专业技能</div>
+      
+      <div class="skill-group">
+        <div class="skill-group-title">Java生态</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Spring Boot</span>
+          <span class="skill-tag">SpringMVC</span>
+          <span class="skill-tag">MyBatis</span>
+          <span class="skill-tag">JDBC</span>
+        </div>
+      </div>
+      
+      <div class="skill-group">
+        <div class="skill-group-title">前端 & 数据库</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Vue3</span>
+          <span class="skill-tag">Element Plus</span>
+          <span class="skill-tag">MySQL</span>
+          <span class="skill-tag">H2</span>
+        </div>
+      </div>
+      
+      <div class="skill-group">
+        <div class="skill-group-title">工具 & AI</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Git</span>
+          <span class="skill-tag">Maven</span>
+          <span class="skill-tag">IDEA</span>
+          <span class="skill-tag">Nginx</span>
+          <span class="skill-tag">硅基流动API</span>
+          <span class="skill-tag">Coze</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Experience -->
+    <div class="section">
+      <div class="section-title">比赛经历</div>
+      
+      <div class="exp-item">
+        <div class="exp-time">2026.04</div>
+        <div class="exp-content">
+          <h4>计算机设计大赛 · 老人信息管理系统</h4>
+          <p>独立完成 Java 后端开发，提供 5 个 REST API 接口（增删改查）</p>
+        </div>
+      </div>
+      
+      <div class="exp-item">
+        <div class="exp-time">2026.05</div>
+        <div class="exp-content">
+          <h4>中兴捧月 · 校园课程助手智能体</h4>
+          <p>独立完成前后端开发，接入硅基流动 Qwen2.5-7B 实现AI对话功能</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Projects -->
+    <div class="section">
+      <div class="section-title">项目经历</div>
+      
+      <div class="item" style="margin-bottom:20px;">
+        <div class="item-header">
+          <h3>星火工作室考核 · CStudyMate C语言AI学伴</h3>
+          <span class="meta">2026.05</span>
+        </div>
+        <div class="project-tech">Java 17 / Spring Boot / Vue3 / MyBatis / H2 / 硅基流动API</div>
+        <ul class="project-desc">
+          <li>前端：Vue3 + Element Plus 页面开发</li>
+          <li>后端：Spring Boot + MyBatis RESTful API</li>
+          <li>AI接入：硅基流动 Qwen2.5-7B，强制结构化输出（📌概念/🔧原理/💻代码/⚠️易错点）</li>
+          <li>完成功能：AI问答、学情统计、练习中心、问答历史</li>
+        </ul>
+      </div>
+      
+      <div class="item" style="margin-bottom:20px;">
+        <div class="item-header">
+          <h3>TLIAS 智能学习平台</h3>
+          <span class="meta">2026.03</span>
+        </div>
+        <div class="project-tech">Spring Boot / Vue3 / JWT / Spring AOP / MySQL</div>
+        <ul class="project-desc">
+          <li>实现用户登录认证与 JWT 令牌鉴权</li>
+          <li>Filter 实现接口权限拦截，AOP 记录操作日志</li>
+          <li>独立完成前后端联调（Nginx 反向代理）</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Self Evaluation -->
+    <div class="section">
+      <div class="section-title">个人评价</div>
+      <div class="item">
+        <p>· 有完整的全栈项目落地经验：独立完成前端页面 + 后端接口 + 数据库设计</p>
+        <p>· 具备 AI 辅助编程能力：接入 LLM API（硅基流动Qwen）开发智能功能，能利用 AI 工具（OpenClaw、Coze）快速定位问题、提升开发效率</p>
+        <p>· 学习能力强，大一期间自学 Spring Boot、Vue3、MyBatis 并落地项目</p>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <p>🎯 目标：2026暑假 Java后端实习 &nbsp;|&nbsp; <a href="https://teku715.github.io/portfolio/" class="portfolio-link">在线作品集</a></p>
+    </div>
+
+  </div>
+</body>
+</html>
