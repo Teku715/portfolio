@@ -9,7 +9,10 @@
         body { font-family: 'Segoe UI', sans-serif; background: #0a0a0f; color: #e0e0e0; line-height: 1.6; }
         .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
         header { text-align: center; margin-bottom: 50px; }
-        h1 { font-size: 2.5em; color: #fff; margin-bottom: 10px; }
+        .photo-wrap { margin-bottom: 20px; }
+        .photo { width: 120px; height: 160px; object-fit: cover; border-radius: 4px; border: 2px solid #333; }
+        h1 { font-size: 2.5em; color: #fff; margin-bottom: 5px; }
+        .target { color: #6c9fff; font-size: 1em; margin-bottom: 8px; }
         .subtitle { color: #888; font-size: 1.1em; }
         .contact { margin-top: 15px; }
         .contact a { color: #6c9fff; text-decoration: none; margin: 0 10px; }
@@ -29,6 +32,7 @@
         .nav a { color: #888; text-decoration: none; margin: 0 8px; font-size: 0.9em; }
         .nav a:hover { color: #6c9fff; }
         .highlight { color: #6c9fff; font-weight: bold; }
+        .edu-item { color: #aaa; margin-bottom: 5px; }
         footer { text-align: center; color: #555; font-size: 0.85em; margin-top: 60px; padding-top: 30px; border-top: 1px solid #222; }
     </style>
 </head>
@@ -42,8 +46,12 @@
 
     <div class="container">
         <header>
+            <div class="photo-wrap">
+                <img src="photo.jpg" alt="证件照" class="photo">
+            </div>
             <h1>特列努尔</h1>
-            <p class="subtitle">南京邮电大学 · 物联网学院 · 网络工程大一</p>
+            <p class="target">🎯 意向岗位：Java后端开发</p>
+            <p class="subtitle">南京邮电大学 · 物联网学院 · 网络工程 · 大一</p>
             <div class="contact">
                 <a href="tel:18761851809">📱 18761851809</a>
                 <a href="mailto:1079086024@qq.com">📧 1079086024@qq.com</a>
@@ -52,20 +60,32 @@
         </header>
 
         <section id="about">
-            <h2>关于我</h2>
+            <h2>个人评价</h2>
             <div class="project">
-                <p>哈萨克族，来自新疆塔城。从内初班到厦门内高班，再到南京邮电大学，一路走来。</p>
-                <p>喜欢写代码，正在学习 <span class="highlight">Java后端 + AI应用</span>。做过完整的项目，接过AI大模型API，做过前端界面。</p>
-                <p>目标：做自己的产品，暑假准备去实习攒经验。</p>
+                <p>哈萨克族，来自新疆。从内初班到厦门内高班，再到南京邮电大学。</p>
+                <p>喜欢写代码，正在学习 <span class="highlight">Java后端 + AI应用</span>。做过完整项目，能接AI大模型API，能做前端界面。</p>
+                <p>目标：做自己的产品，暑假找Java后端实习攒经验。</p>
             </div>
         </section>
 
         <section id="projects">
-            <h2>项目展示</h2>
+            <h2>项目经历</h2>
+
+            <div class="project">
+                <h3>🤖 校园课程助手智能体（兴享智家）</h3>
+                <p>中兴捧月比赛作品，AI智能助手，可以查课程表、查成绩、问问题。已提交参赛。</p>
+                <div class="tech">
+                    <span>Java/Spring Boot</span>
+                    <span>Vue3 + Element Plus</span>
+                    <span>硅基流动API(Qwen2.5-7B)</span>
+                    <span>Vite + Axios</span>
+                </div>
+                <p>后端5个接口，接入Qwen2.5-7B大模型，前端独立完成。</p>
+            </div>
 
             <div class="project">
                 <h3>🎓 CStudyMate - C语言AI学习助手</h3>
-                <p>一个帮助大学生学习C语言的智能问答系统。接入大模型，自动出题，练习记录，语法练习。</p>
+                <p>帮助大学生学习C语言的智能问答系统。接入大模型，自动出题，练习记录，语法练习。</p>
                 <div class="tech">
                     <span>Spring Boot</span>
                     <span>Vue3</span>
@@ -79,18 +99,6 @@
                 <img src="screenshot3.png" alt="CStudyMate练习" class="screenshot">
                 <img src="screenshot4.png" alt="CStudyMate学情" class="screenshot">
             </div>
-
-            <div class="project">
-                <h3>🤖 校园课程助手智能体（兴享智家）</h3>
-                <p>中兴捧月比赛作品，AI智能助手，可以查课程表、查成绩、问问题。</p>
-                <div class="tech">
-                    <span>Java/Spring Boot</span>
-                    <span>Vue3 + Element Plus</span>
-                    <span>硅基流动LLM</span>
-                    <span>Vite + Axios</span>
-                </div>
-                <p>后端5个接口，接入Qwen2.5-7B大模型，前端我独立完成的。</p>
-            </div>
         </section>
 
         <section id="skills">
@@ -98,20 +106,29 @@
             <div class="skills-grid">
                 <div class="skill-card">
                     <h4>☕ Java后端</h4>
-                    <p>Spring Boot、MyBatis、H2数据库、会话管理、接口开发</p>
+                    <p>Spring Boot、MySQL、MyBatis、H2数据库、会话管理、接口开发</p>
                 </div>
                 <div class="skill-card">
-                    <h4>🤖 AI应用</h4>
-                    <p>接入大模型API(Qwen2.5-7B)、LLM输出结构化、Coze平台搭机器人</p>
+                    <h4>🤖 AI辅助开发</h4>
+                    <p>Coze平台搭建机器人、硅基流动API(Qwen2.5-7B)、AI辅助编程</p>
                 </div>
                 <div class="skill-card">
                     <h4>🖥️ 前端</h4>
-                    <p>Vue3、Element Plus、Vite、Axios、HTML/CSS/JS</p>
+                    <p>Vue3、Element Plus、Vite、Axios</p>
                 </div>
                 <div class="skill-card">
-                    <h4>🐧 Linux与工具</h4>
-                    <p>Git、Docker基础、命令行操作、Markdown文档</p>
+                    <h4>🐧 工具</h4>
+                    <p>Git、Docker基础、Linux命令行、Markdown文档</p>
                 </div>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2>教育背景</h2>
+            <div class="project">
+                <p class="edu-item">🎓 南京邮电大学 · 物联网学院 · 网络工程 · 大一</p>
+                <p class="edu-item">📊 GPA：3.15 / 4.0</p>
+                <p class="edu-item">📝 英语四级已通过</p>
             </div>
         </section>
 
@@ -120,7 +137,7 @@
             <div class="project">
                 <p><span class="highlight">📱 手机：</span>18761851809</p>
                 <p><span class="highlight">📧 邮箱：</span>1079086024@qq.com</p>
-                <p style="margin-top:15px; color:#666;">欢迎联系我，暑假找Java后端实习中。</p>
+                <p style="margin-top:15px; color:#666;">暑假找Java后端实习中，欢迎联系。</p>
             </div>
         </section>
 
