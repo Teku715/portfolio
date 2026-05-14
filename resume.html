@@ -10,19 +10,17 @@
     .container { max-width: 800px; margin: 40px auto; background: #fff; padding: 50px 60px; box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
 
     /* Header */
-    .header { border-bottom: 2px solid #1a1a2e; padding-bottom: 24px; margin-bottom: 32px; }
-    .header-content { display: flex; align-items: center; gap: 24px; }
-    .photo-wrap { flex-shrink: 0; position: relative; }
+    .header { border-bottom: 2px solid #1a1a2e; padding-bottom: 24px; margin-bottom: 32px; position: relative; }
+    .photo-wrap { position: absolute; top: 0; right: 0; }
     .photo { width: 90px; height: 120px; object-fit: cover; border-radius: 4px; border: 1px solid #ddd; cursor: pointer; transition: all 0.3s; }
     .photo:hover { border-color: #1a1a2e; }
-    .photo-hint { font-size: 0.7em; color: #aaa; text-align: center; margin-top: 3px; }
+    .photo-hint { font-size: 0.7em; color: #aaa; text-align: center; margin-top: 3px; cursor: pointer; }
     .photo-full { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 999; justify-content: center; align-items: center; }
     .photo-full img { max-width: 90%; max-height: 90%; border-radius: 8px; border: 2px solid #fff; }
     .photo-full .close { position: absolute; top: 20px; right: 30px; color: #fff; font-size: 2em; cursor: pointer; }
-    .header-text { flex: 1; }
-    .name { font-size: 30px; font-weight: 700; color: #1a1a2e; margin-bottom: 6px; }
-    .tagline { color: #555; font-size: 15px; margin-bottom: 8px; }
-    .target { color: #1a1a2e; font-size: 14px; margin-bottom: 8px; }
+    .name { font-size: 30px; font-weight: 700; color: #1a1a2e; margin-bottom: 4px; padding-right: 110px; }
+    .tagline { color: #555; font-size: 15px; margin-bottom: 6px; padding-right: 110px; }
+    .target { color: #1a1a2e; font-size: 14px; margin-bottom: 8px; padding-right: 110px; }
     .contacts { display: flex; flex-wrap: wrap; gap: 14px; font-size: 14px; color: #666; }
     .contacts span { display: flex; align-items: center; gap: 5px; }
 
@@ -61,10 +59,6 @@
     .project-desc { font-size: 13px; color: #555; }
     .project-desc li { margin-bottom: 3px; }
 
-    /* Objective */
-    .objective { background: #f8f8fc; border-radius: 8px; padding: 16px 20px; border: 1px solid #e8e8f0; }
-    .objective-text { font-size: 14px; color: #444; }
-
     /* Personal Eval */
     .eval-item { font-size: 14px; color: #555; margin-bottom: 6px; padding-left: 10px; position: relative; }
     .eval-item::before { content: '·'; position: absolute; left: 0; color: #1a1a2e; }
@@ -72,7 +66,8 @@
     @media (max-width: 600px) {
       .container { padding: 30px 24px; margin: 20px; }
       .contacts { flex-direction: column; gap: 6px; }
-      .header-content { flex-direction: column; text-align: center; }
+      .photo-wrap { position: static; margin-bottom: 15px; }
+      .name, .tagline, .target { padding-right: 0; }
     }
   </style>
 </head>
@@ -90,22 +85,18 @@
 
     <!-- Header -->
     <div class="header">
-      <div class="header-content">
-        <div class="photo-wrap">
-          <img src="photo.jpg" alt="证件照" class="photo" onclick="expandPhoto()">
-          <div class="photo-hint">点击放大</div>
-        </div>
-        <div class="header-text">
-          <div class="name">特列努尔</div>
-          <div class="tagline">南京邮电大学 · 物联网学院 · 网络工程 · 大一</div>
-          <div class="target">🎯 意向岗位：Java后端开发实习生</div>
-          <div class="contacts">
-            <span>📱 18761851809</span>
-            <span>📧 1079086024@qq.com</span>
-            <span>🔗 <a href="https://teku715.github.io/portfolio/" style="color:#555;">作品集</a></span>
-            <span>🐱 <a href="https://github.com/Teku715" style="color:#555;">GitHub</a></span>
-          </div>
-        </div>
+      <div class="photo-wrap" onclick="expandPhoto()">
+        <img src="photo.jpg" alt="证件照" class="photo">
+        <div class="photo-hint">点击放大</div>
+      </div>
+      <div class="name">特列努尔</div>
+      <div class="tagline">南京邮电大学 · 物联网学院 · 网络工程 · 大一</div>
+      <div class="target">🎯 意向岗位：Java后端开发实习生</div>
+      <div class="contacts">
+        <span>📱 18761851809</span>
+        <span>📧 1079086024@qq.com</span>
+        <span>🔗 <a href="https://teku715.github.io/portfolio/" style="color:#555;">作品集</a></span>
+        <span>🐱 <a href="https://github.com/Teku715" style="color:#555;">GitHub</a></span>
       </div>
     </div>
 
@@ -216,9 +207,8 @@
     <div class="section">
       <div class="section-title">个人评价</div>
       <div class="item">
-        <p class="eval-item">哈萨克族，来自新疆。从内初班到厦门内高班，再到南京邮电大学，一路独立走过来。</p>
-        <p class="eval-item">有完整全栈项目落地经验：独立完成前端页面 + 后端接口 + 数据库设计</p>
-        <p class="eval-item">具备 AI 辅助编程能力：Vibe Coding、GitHub Copilot、Coze平台、硅基流动API，能利用 AI 工具快速定位问题、提升开发效率</p>
+        <p class="eval-item">从新疆到南京，一路独立走过来，有完整全栈项目落地经验</p>
+        <p class="eval-item">AI辅助编程能力：Vibe Coding、GitHub Copilot、Coze平台、硅基流动API，能利用AI工具快速定位问题、提升开发效率</p>
         <p class="eval-item">学习能力强，大一期间自学 Spring Boot、Vue3、MyBatis 并落地项目，目标暑假找 Java 后端实习攒经验</p>
       </div>
     </div>
