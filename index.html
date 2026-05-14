@@ -6,88 +6,122 @@
     <title>特列努尔 - 个人作品集</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', sans-serif; background: #0a0a0f; color: #e0e0e0; line-height: 1.6; }
-        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
-        header { text-align: center; margin-bottom: 40px; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); border-radius: 16px; padding: 40px 30px; border: 1px solid #222; }
-        .top-nav { display: flex; justify-content: center; gap: 30px; margin-bottom: 30px; }
-        .top-nav a { color: #6c9fff; text-decoration: none; font-size: 1em; padding: 8px 20px; border: 1px solid #6c9fff; border-radius: 25px; transition: all 0.3s; }
-        .top-nav a:hover { background: #6c9fff; color: #0a0a0f; }
-        .header-content { display: flex; align-items: center; gap: 30px; text-align: left; }
-        .photo-wrap { flex-shrink: 0; position: relative; }
-        .photo { width: 100px; height: 133px; object-fit: cover; border-radius: 6px; border: 2px solid #333; cursor: pointer; transition: all 0.3s; }
-        .photo:hover { border-color: #6c9fff; }
-        .photo-hint { font-size: 0.75em; color: #555; margin-top: 5px; }
-        .photo-full { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 999; justify-content: center; align-items: center; }
-        .photo-full img { max-width: 90%; max-height: 90%; border-radius: 8px; border: 3px solid #6c9fff; }
-        .photo-full .close { position: absolute; top: 20px; right: 30px; color: #fff; font-size: 2em; cursor: pointer; }
-        .header-text { flex: 1; }
-        h1 { font-size: 2.2em; color: #fff; margin-bottom: 5px; }
-        .target { color: #6c9fff; font-size: 1em; margin-bottom: 8px; }
-        .subtitle { color: #888; font-size: 1em; margin-bottom: 10px; }
-        .contact { display: flex; gap: 15px; flex-wrap: wrap; }
-        .contact a { color: #6c9fff; text-decoration: none; font-size: 0.9em; }
-        section { margin-bottom: 45px; }
-        h2 { color: #6c9fff; border-left: 3px solid #6c9fff; padding-left: 15px; margin-bottom: 20px; font-size: 1.4em; }
-        .project { background: #16161e; border-radius: 12px; padding: 25px; margin-bottom: 25px; border: 1px solid #222; }
-        .project h3 { color: #fff; font-size: 1.25em; margin-bottom: 10px; }
-        .project p { color: #aaa; margin-bottom: 12px; }
-        .tech { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
-        .tech span { background: #1e2a3a; color: #6c9fff; padding: 4px 12px; border-radius: 20px; font-size: 0.85em; }
-        .screenshot { width: 100%; border-radius: 8px; margin: 12px 0; border: 1px solid #333; }
-        .video-wrap { background: #1a1a2e; border-radius: 10px; padding: 15px; margin: 15px 0; }
-        .video-wrap video { width: 100%; border-radius: 8px; }
-        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
-        .skill-card { background: #16161e; padding: 18px; border-radius: 10px; border: 1px solid #222; }
-        .skill-card h4 { color: #6c9fff; margin-bottom: 8px; font-size: 1em; }
-        .skill-card p { color: #888; font-size: 0.85em; }
-        .highlight { color: #6c9fff; font-weight: bold; }
-        .edu-item { color: #aaa; margin-bottom: 5px; }
-        footer { text-align: center; color: #555; font-size: 0.85em; margin-top: 50px; padding-top: 25px; border-top: 1px solid #222; }
+        body { font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif; background: #fafafa; color: #333; line-height: 1.7; }
+        a { color: #2563eb; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        /* Nav */
+        .nav { display: flex; justify-content: center; align-items: center; gap: 32px; padding: 20px 40px; background: #fff; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 100; }
+        .nav-brand { font-size: 1.1em; font-weight: 600; color: #111; }
+        .nav-links { display: flex; gap: 24px; }
+        .nav-links a { color: #555; font-size: 0.95em; transition: color 0.2s; }
+        .nav-links a:hover { color: #2563eb; text-decoration: none; }
+        .nav-resume { background: #2563eb; color: #fff; padding: 8px 20px; border-radius: 20px; font-size: 0.9em; transition: background 0.2s; }
+        .nav-resume:hover { background: #1d4ed8; text-decoration: none; }
+
+        .container { max-width: 900px; margin: 0 auto; padding: 50px 24px; }
+
+        /* Hero */
+        .hero { text-align: center; margin-bottom: 60px; }
+        .hero h1 { font-size: 2.4em; color: #111; margin-bottom: 8px; }
+        .hero .subtitle { font-size: 1.1em; color: #666; margin-bottom: 16px; }
+        .hero .tags { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
+        .hero .tag { background: #f0f4ff; color: #2563eb; padding: 5px 14px; border-radius: 20px; font-size: 0.85em; }
+        .hero .contact-line { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; color: #888; font-size: 0.9em; }
+        .hero .contact-line span { display: flex; align-items: center; gap: 5px; }
+
+        /* Section */
+        .section { margin-bottom: 50px; }
+        .section-title { font-size: 1.2em; font-weight: 600; color: #111; border-left: 4px solid #2563eb; padding-left: 12px; margin-bottom: 24px; }
+
+        /* Card */
+        .card { background: #fff; border: 1px solid #eee; border-radius: 12px; padding: 28px; margin-bottom: 20px; transition: box-shadow 0.2s; }
+        .card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+        .card h3 { font-size: 1.1em; color: #111; margin-bottom: 8px; }
+        .card .card-meta { font-size: 0.85em; color: #888; margin-bottom: 10px; }
+        .card p { color: #555; font-size: 0.95em; margin-bottom: 12px; }
+        .card .tech { display: flex; flex-wrap: wrap; gap: 8px; }
+        .card .tech span { background: #f5f5f5; color: #333; padding: 3px 10px; border-radius: 4px; font-size: 0.82em; }
+
+        /* Video */
+        .video-wrap { background: #f0f0f0; border-radius: 10px; overflow: hidden; margin: 15px 0; }
+        .video-wrap video { width: 100%; display: block; }
+
+        /* Skills */
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+        .skill-item { background: #fff; border: 1px solid #eee; border-radius: 10px; padding: 20px; }
+        .skill-item h4 { font-size: 0.95em; color: #2563eb; margin-bottom: 6px; }
+        .skill-item p { font-size: 0.85em; color: #666; }
+
+        /* Footer */
+        footer { text-align: center; padding: 30px 0; color: #aaa; font-size: 0.85em; border-top: 1px solid #eee; margin-top: 50px; }
+
+        /* Resume specific */
+        .resume-nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; background: #fff; border-bottom: 1px solid #eee; }
+        .resume-back { color: #555; font-size: 0.9em; }
+        .resume-back:hover { color: #2563eb; }
+        .resume-header { text-align: center; padding: 40px 0 30px; border-bottom: 2px solid #2563eb; margin-bottom: 36px; }
+        .resume-header h1 { font-size: 2em; color: #111; margin-bottom: 6px; }
+        .resume-header .sub { color: #666; font-size: 0.95em; margin-bottom: 14px; }
+        .resume-header .contact-row { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; color: #555; font-size: 0.88em; }
+        .resume-section { margin-bottom: 28px; }
+        .resume-section h2 { font-size: 1em; color: #111; border-left: 3px solid #2563eb; padding-left: 10px; margin-bottom: 14px; }
+        .resume-item { margin-bottom: 14px; }
+        .resume-item .rheader { display: flex; justify-content: space-between; margin-bottom: 3px; }
+        .resume-item .rheader h3 { font-size: 0.95em; color: #222; }
+        .resume-item .rheader span { font-size: 0.82em; color: #888; }
+        .resume-item p { font-size: 0.88em; color: #555; }
+        .resume-skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+        .resume-skill-tag { background: #f0f4ff; color: #2563eb; padding: 2px 10px; border-radius: 4px; font-size: 0.8em; }
+        .resume-eval-item { font-size: 0.9em; color: #444; margin-bottom: 5px; padding-left: 10px; position: relative; }
+        .resume-eval-item::before { content: '·'; position: absolute; left: 0; color: #2563eb; }
+
+        @media (max-width: 600px) {
+            .nav { flex-wrap: wrap; gap: 12px; padding: 15px 20px; }
+            .hero h1 { font-size: 1.8em; }
+            .container { padding: 30px 16px; }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <nav class="top-nav">
-                <a href="#about">关于</a>
-                <a href="#projects">项目</a>
-                <a href="#skills">技能</a>
-                <a href="#contact">联系</a>
-                <a href="resume.html" target="_blank">📄 个人简历</a>
-            </nav>
-            <div class="header-content">
-                <div class="photo-wrap">
-                    <img src="photo.jpg" alt="证件照" class="photo" onclick="expandPhoto()">
-                    <p class="photo-hint">点击放大</p>
-                </div>
-                <div class="header-text">
-                    <h1>特列努尔</h1>
-                    <p class="target">🎯 意向岗位：Java后端开发</p>
-                    <p class="subtitle">南京邮电大学 · 物联网学院 · 网络工程 · 大一</p>
-                    <div class="contact">
-                        <a href="tel:18761851809">📱 18761851809</a>
-                        <a href="mailto:1079086024@qq.com">📧 1079086024@qq.com</a>
-                        <a href="https://github.com/Teku715" target="_blank">🐱 GitHub</a>
-                    </div>
-                </div>
-            </div>
-        </header>
+    <!-- Portfolio Index -->
+    <nav class="nav">
+        <span class="nav-brand">特列努尔</span>
+        <div class="nav-links">
+            <a href="#about">关于</a>
+            <a href="#projects">项目</a>
+            <a href="#skills">技能</a>
+            <a href="#contact">联系</a>
+        </div>
+        <a href="resume.html" target="_blank" class="nav-resume">📄 简历</a>
+    </nav>
 
-        <section id="about">
-            <h2>个人评价</h2>
-            <div class="project">
-                <p>哈萨克族，来自新疆。从内初班到厦门内高班，再到南京邮电大学。</p>
-                <p>喜欢写代码，正在学习 <span class="highlight">Java后端 + AI应用</span>。做过完整项目，能接AI大模型API，能做前端界面。</p>
-                <p>目标：做自己的产品，暑假找Java后端实习攒经验。</p>
+    <div class="container">
+        <!-- Hero -->
+        <section class="hero" id="about">
+            <h1>特列努尔</h1>
+            <p class="subtitle">南京邮电大学 · 物联网学院 · 网络工程 · 大一</p>
+            <div class="tags">
+                <span class="tag">Java后端</span>
+                <span class="tag">AI应用开发</span>
+                <span class="tag">Vibe Coding</span>
+            </div>
+            <div class="contact-line">
+                <span>📱 18799297991</span>
+                <span>📧 2373093434@qq.com</span>
+                <span>🏠 南京</span>
+                <span><a href="https://github.com/Teku715" target="_blank">🐱 GitHub</a></span>
             </div>
         </section>
 
-        <section id="projects">
-            <h2>项目经历</h2>
+        <!-- Projects -->
+        <section class="section" id="projects">
+            <h2 class="section-title">项目经历</h2>
 
-            <div class="project">
-                <h3>🤖 校园课程助手智能体（兴享智家）</h3>
-                <p>中兴捧月比赛作品，AI智能助手，可以查课程表、查成绩、问问题。已提交参赛。</p>
+            <div class="card">
+                <h3>🤖 兴享智家 - 校园课程助手智能体</h3>
+                <p class="card-meta">中兴捧月 · 2026.05 · 参赛作品</p>
+                <p>AI智能助手，接入硅基流动Qwen2.5-7B，可查课程表、查成绩、问答。</p>
                 <div class="tech">
                     <span>Java/Spring Boot</span>
                     <span>Vue3 + Element Plus</span>
@@ -95,83 +129,85 @@
                     <span>Vite + Axios</span>
                 </div>
                 <div class="video-wrap">
-                    <video controls poster>
+                    <video controls>
                         <source src="demo.mp4" type="video/mp4">
                         您的浏览器不支持 video 标签
                     </video>
                 </div>
-                <p style="color:#666; font-size:0.9em;">后端5个接口，接入Qwen2.5-7B大模型，前端独立完成。</p>
             </div>
 
-            <div class="project">
+            <div class="card">
                 <h3>🎓 CStudyMate - C语言AI学习助手</h3>
-                <p>帮助大学生学习C语言的智能问答系统。接入大模型，自动出题，练习记录，语法练习。</p>
+                <p class="card-meta">星火工作室考核 · 2026.05</p>
+                <p>帮助大学生学习C语言的智能问答系统，接入大模型，自动出题，练习记录，语法练习。</p>
                 <div class="tech">
                     <span>Spring Boot</span>
-                    <span>Vue3</span>
-                    <span>H2数据库</span>
+                    <span>Vue3 + Element Plus</span>
+                    <span>MyBatis / H2</span>
                     <span>硅基流动API(Qwen2.5-7B)</span>
-                    <span>Element Plus</span>
                     <span>Vite</span>
                 </div>
-                <img src="screenshot1.png" alt="CStudyMate首页" class="screenshot">
-                <img src="screenshot2.png" alt="CStudyMate问答" class="screenshot">
-                <img src="screenshot3.png" alt="CStudyMate练习" class="screenshot">
-                <img src="screenshot4.png" alt="CStudyMate学情" class="screenshot">
+            </div>
+
+            <div class="card">
+                <h3>🏠 老人信息管理系统</h3>
+                <p class="card-meta">计算机设计大赛 · 2026.04</p>
+                <p>独立完成Java后端开发，提供5个REST API接口（增删改查），MySQL数据库。</p>
+                <div class="tech">
+                    <span>Java</span>
+                    <span>Spring Boot</span>
+                    <span>MySQL</span>
+                    <span>REST API</span>
+                </div>
             </div>
         </section>
 
-        <section id="skills">
-            <h2>技术技能</h2>
+        <!-- Skills -->
+        <section class="section" id="skills">
+            <h2 class="section-title">技术技能</h2>
             <div class="skills-grid">
-                <div class="skill-card">
+                <div class="skill-item">
                     <h4>☕ Java后端</h4>
-                    <p>Spring Boot、MySQL、MyBatis、H2数据库、会话管理、接口开发</p>
+                    <p>Spring Boot、MySQL、MyBatis、H2数据库、接口开发</p>
                 </div>
-                <div class="skill-card">
+                <div class="skill-item">
                     <h4>🤖 AI辅助开发</h4>
                     <p>Vibe Coding、GitHub Copilot、Coze平台、硅基流动API(Qwen2.5-7B)</p>
                 </div>
-                <div class="skill-card">
+                <div class="skill-item">
                     <h4>🖥️ 前端</h4>
                     <p>Vue3、Element Plus、Vite、Axios</p>
                 </div>
-                <div class="skill-card">
+                <div class="skill-item">
                     <h4>🐧 工具</h4>
-                    <p>Git、Docker基础、Linux命令行、Markdown文档</p>
+                    <p>Git、Docker、Linux命令行、IDEA、Maven</p>
                 </div>
             </div>
         </section>
 
-        <section id="education">
-            <h2>教育背景</h2>
-            <div class="project">
-                <p class="edu-item">🎓 南京邮电大学 · 物联网学院 · 网络工程 · 大一</p>
-                <p class="edu-item">📊 GPA：3.15 / 4.0</p>
-                <p class="edu-item">📝 英语四级已通过</p>
+        <!-- Education -->
+        <section class="section" id="education">
+            <h2 class="section-title">教育背景</h2>
+            <div class="card">
+                <h3>🎓 南京邮电大学</h3>
+                <p class="card-meta">2024级 · 大一</p>
+                <p>物联网学院 · 网络工程 &nbsp;|&nbsp; GPA 3.15 / 4.0 &nbsp;|&nbsp; 英语四级</p>
             </div>
         </section>
 
-        <section id="contact">
-            <h2>联系方式</h2>
-            <div class="project">
-                <p><span class="highlight">📱 手机：</span>18761851809</p>
-                <p><span class="highlight">📧 邮箱：</span>1079086024@qq.com</p>
-                <p style="margin-top:15px; color:#666;">暑假找Java后端实习中，欢迎联系。</p>
+        <!-- Contact -->
+        <section class="section" id="contact">
+            <h2 class="section-title">联系</h2>
+            <div class="card">
+                <p>📱 <a href="tel:18799297991">18799297991</a></p>
+                <p>📧 <a href="mailto:2373093434@qq.com">2373093434@qq.com</a></p>
+                <p style="margin-top:12px; color:#888; font-size:0.9em;">🎯 目标：2026暑假 Java后端实习</p>
             </div>
         </section>
 
         <footer>
-            <p>© 2026 特列努尔 | 南京邮电大学</p>
+            <p>© 2026 特列努尔 &nbsp;|&nbsp; <a href="resume.html" target="_blank">📄 在线简历</a></p>
         </footer>
-        <div class="photo-full" id="photoModal" onclick="closePhoto()">
-            <span class="close">×</span>
-            <img src="photo.jpg" alt="证件照">
-        </div>
-        <script>
-            function expandPhoto() { document.getElementById('photoModal').style.display = 'flex'; }
-            function closePhoto() { document.getElementById('photoModal').style.display = 'none'; }
-        </script>
     </div>
 </body>
 </html>
