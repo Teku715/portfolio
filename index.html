@@ -42,6 +42,9 @@
         .card p { color: #555; font-size: 0.95em; margin-bottom: 12px; }
         .card .tech { display: flex; flex-wrap: wrap; gap: 8px; }
         .card .tech span { background: #f5f5f5; color: #333; padding: 3px 10px; border-radius: 4px; font-size: 0.82em; }
+        .card .card-links { margin-top: 10px; font-size: 0.9em; }
+        .card .highlights { margin: 12px 0 0; padding-left: 18px; color: #555; font-size: 0.9em; }
+        .card .highlights li { margin-bottom: 4px; }
 
         /* Video */
         .video-wrap { background: #f0f0f0; border-radius: 10px; overflow: hidden; margin: 15px 0; }
@@ -100,17 +103,18 @@
         <!-- Hero -->
         <section class="hero" id="about">
             <h1>特列努尔</h1>
-            <p class="subtitle">南京邮电大学 · 物联网学院 · 网络工程 · 大一</p>
+            <p class="subtitle">南京邮电大学 · 物联网学院 · 网络工程 · 2025级 · 大一</p>
             <div class="tags">
                 <span class="tag">Java后端</span>
                 <span class="tag">AI应用开发</span>
-                <span class="tag">Vibe Coding</span>
+                <span class="tag">全栈项目实践</span>
             </div>
             <div class="contact-line">
                 <span>📱 18761851809</span>
                 <span>📧 1079086024@qq.com</span>
                 <span>🏠 南京</span>
-                <span><a href="https://github.com/Teku715" target="_blank">🐱 GitHub</a></span>
+                <span><a href="https://github.com/Teku715" target="_blank">GitHub</a></span>
+                <span><a href="resume.html" target="_blank">在线简历</a></span>
             </div>
         </section>
 
@@ -121,14 +125,18 @@
             <div class="card">
                 <h3>🎙️ 丝路声绘 · Silk VoiceBrush（AI 英语口语陪练）</h3>
                 <p class="card-meta">七牛云 XEngineer · 2026.06 · 参赛作品</p>
-                <p>场景化英语口语练习：按住说话、SenseVoice 语音识别、Qwen 角色对话、表达评测与课后总结。</p>
+                <p>独立完成后端架构，集成 SenseVoice 语音识别与 Qwen 大模型，实现多场景口语练习全流程。</p>
+                <ul class="highlights">
+                    <li>支持面试 / 餐厅 / 会议 / 旅行 / 购物 5 类场景</li>
+                    <li>涵盖按住说话、ASR、TTS、角色扮演、表达评测与课后总结</li>
+                </ul>
                 <div class="tech">
                     <span>Java / Spring Boot</span>
                     <span>HTML / CSS / JavaScript</span>
                     <span>硅基流动 SenseVoice</span>
                     <span>硅基流动 Qwen2.5</span>
                 </div>
-                <p style="margin-top:10px;font-size:0.9em;">
+                <p class="card-links">
                     <a href="https://github.com/Teku715/ai-english-tutor" target="_blank">GitHub 源码</a>
                     &nbsp;·&nbsp;
                     <a href="https://www.bilibili.com/video/BV1wcEp62EW9/" target="_blank">B 站演示</a>
@@ -143,13 +151,17 @@
             </div>
 
             <div class="card">
-                <h3>🤖 兴享智家 - 校园课程助手智能体</h3>
+                <h3>🤖 兴享智家 · 校园课程助手智能体</h3>
                 <p class="card-meta">中兴捧月 · 2026.05 · 参赛作品</p>
-                <p>AI智能助手，接入硅基流动Qwen2.5-7B，可查课程表、查成绩、问答。</p>
+                <p>独立完成前后端开发，接入 Qwen2.5-7B 实现 AI 对话，支持查课程表、查成绩与智能问答。</p>
+                <ul class="highlights">
+                    <li>后端 RESTful 接口 + Vue3 前端完整联调</li>
+                    <li>完成从需求分析、接口设计到上线的完整开发流程</li>
+                </ul>
                 <div class="tech">
-                    <span>Java/Spring Boot</span>
+                    <span>Java / Spring Boot</span>
                     <span>Vue3 + Element Plus</span>
-                    <span>硅基流动API(Qwen2.5-7B)</span>
+                    <span>硅基流动 Qwen2.5</span>
                     <span>Vite + Axios</span>
                 </div>
                 <details class="video-wrap" style="background:#f0f0f0;border-radius:10px;padding:12px;margin:12px 0;">
@@ -162,27 +174,52 @@
             </div>
 
             <div class="card">
-                <h3>🎓 CStudyMate - C语言AI学习助手</h3>
+                <h3>🎓 CStudyMate · C语言 AI 学习助手</h3>
                 <p class="card-meta">星火工作室考核 · 2026.05</p>
-                <p>帮助大学生学习C语言的智能问答系统，接入大模型，自动出题，练习记录，语法练习。</p>
+                <p>面向大学生的 C 语言智能问答系统，接入大模型实现结构化讲解与练习闭环。</p>
+                <ul class="highlights">
+                    <li>Spring Boot + MyBatis 后端，Vue3 前端完成 AI 问答与学情统计</li>
+                    <li>设计结构化 Prompt，输出概念 / 原理 / 代码 / 易错点</li>
+                </ul>
                 <div class="tech">
                     <span>Spring Boot</span>
                     <span>Vue3 + Element Plus</span>
                     <span>MyBatis / H2</span>
-                    <span>硅基流动API(Qwen2.5-7B)</span>
+                    <span>硅基流动 Qwen2.5</span>
                     <span>Vite</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>📚 TLIAS 智能学习平台</h3>
+                <p class="card-meta">课程项目 · 2026.03</p>
+                <p>基于 Spring Boot + Vue3 的管理平台，重点实践认证鉴权与后端工程化能力。</p>
+                <ul class="highlights">
+                    <li>JWT 登录认证 + Filter 接口权限拦截</li>
+                    <li>Spring AOP 统一记录操作日志，完成部门与员工管理模块</li>
+                </ul>
+                <div class="tech">
+                    <span>Spring Boot</span>
+                    <span>Vue3</span>
+                    <span>JWT</span>
+                    <span>Spring AOP</span>
+                    <span>MySQL</span>
                 </div>
             </div>
 
             <div class="card">
                 <h3>🏠 老人信息管理系统</h3>
                 <p class="card-meta">计算机设计大赛 · 2026.04</p>
-                <p>独立完成Java后端开发，提供5个REST API接口（增删改查），MySQL数据库。</p>
+                <p>独立完成 Java 后端开发，设计并实现老人信息管理 REST API。</p>
+                <ul class="highlights">
+                    <li>提供 5 个 REST API 接口（增删改查）</li>
+                    <li>MySQL 数据持久化，规范接口设计与异常处理</li>
+                </ul>
                 <div class="tech">
                     <span>Java</span>
                     <span>Spring Boot</span>
                     <span>MySQL</span>
-                    <span>REST API</span>
+                    <span>RESTful API</span>
                 </div>
             </div>
         </section>
@@ -192,20 +229,20 @@
             <h2 class="section-title">技术技能</h2>
             <div class="skills-grid">
                 <div class="skill-item">
-                    <h4>☕ Java后端</h4>
-                    <p>Spring Boot、MySQL、MyBatis、H2数据库、接口开发</p>
+                    <h4>☕ Java 后端</h4>
+                    <p>Spring Boot、RESTful API、MySQL、MyBatis、JWT、Spring AOP</p>
                 </div>
                 <div class="skill-item">
-                    <h4>🤖 AI辅助开发</h4>
-                    <p>Vibe Coding、GitHub Copilot、Coze平台、硅基流动API(Qwen2.5-7B)</p>
+                    <h4>🤖 AI & 大模型</h4>
+                    <p>硅基流动 Qwen2.5、SenseVoice 语音识别、AI 辅助编程、Copilot、Coze</p>
                 </div>
                 <div class="skill-item">
                     <h4>🖥️ 前端</h4>
-                    <p>Vue3、Element Plus、Vite、Axios</p>
+                    <p>Vue3、Element Plus、Vite、Axios、HTML / CSS / JavaScript</p>
                 </div>
                 <div class="skill-item">
                     <h4>🐧 工具</h4>
-                    <p>Git、Docker、Linux命令行、IDEA、Maven</p>
+                    <p>Git、Docker、Maven、IDEA、Linux 命令行</p>
                 </div>
             </div>
         </section>
@@ -215,8 +252,8 @@
             <h2 class="section-title">教育背景</h2>
             <div class="card">
                 <h3>🎓 南京邮电大学</h3>
-                <p class="card-meta">2024级 · 大一</p>
-                <p>物联网学院 · 网络工程 &nbsp;|&nbsp; GPA 3.15 / 4.0 &nbsp;|&nbsp; 英语四级</p>
+                <p class="card-meta">2025级 · 大一</p>
+                <p>物联网学院 · 网络工程 &nbsp;|&nbsp; GPA 3.15 / 4.0 &nbsp;|&nbsp; 英语四级已通过</p>
             </div>
         </section>
 
@@ -226,7 +263,8 @@
             <div class="card">
                 <p>📱 <a href="tel:18761851809">18761851809</a></p>
                 <p>📧 <a href="mailto:1079086024@qq.com">1079086024@qq.com</a></p>
-                <p style="margin-top:12px; color:#888; font-size:0.9em;">🎯 目标：2026暑假 Java后端实习</p>
+                <p>🔗 <a href="https://github.com/Teku715" target="_blank">GitHub</a></p>
+                <p style="margin-top:12px; color:#888; font-size:0.9em;">意向岗位：2026 暑假 Java 后端开发实习生 · 南京 / 可远程</p>
             </div>
         </section>
 
