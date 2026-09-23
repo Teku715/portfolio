@@ -1,306 +1,228 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>特列努尔 - 个人作品集</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif; background: #fafafa; color: #333; line-height: 1.7; }
-        a { color: #2563eb; text-decoration: none; }
-        a:hover { text-decoration: underline; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>特列努尔 | Java后端开发实习生</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif; background: #f5f5f5; color: #333; line-height: 1.8; }
+    .container { max-width: 800px; margin: 40px auto; background: #fff; padding: 50px 60px; box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
 
-        /* Nav */
-        .nav { display: flex; justify-content: center; align-items: center; gap: 32px; padding: 20px 40px; background: #fff; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 100; }
-        .nav-brand { font-size: 1.1em; font-weight: 600; color: #111; }
-        .nav-links { display: flex; gap: 24px; }
-        .nav-links a { color: #555; font-size: 0.95em; transition: color 0.2s; }
-        .nav-links a:hover { color: #2563eb; text-decoration: none; }
-        .nav-resume { background: #2563eb; color: #fff; padding: 8px 20px; border-radius: 20px; font-size: 0.9em; transition: background 0.2s; }
-        .nav-resume:hover { background: #1d4ed8; text-decoration: none; }
+    /* Header */
+    .header { border-bottom: 2px solid #1a1a2e; padding-bottom: 24px; margin-bottom: 32px; position: relative; }
+    .photo-wrap { position: absolute; top: 0; right: 0; }
+    .photo { width: 90px; height: 120px; object-fit: cover; border-radius: 4px; border: 1px solid #ddd; cursor: pointer; transition: all 0.3s; }
+    .photo:hover { border-color: #1a1a2e; }
+    .photo-hint { font-size: 0.7em; color: #aaa; text-align: center; margin-top: 3px; cursor: pointer; }
+    .photo-full { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 999; justify-content: center; align-items: center; }
+    .photo-full img { max-width: 90%; max-height: 90%; border-radius: 8px; border: 2px solid #fff; }
+    .photo-full .close { position: absolute; top: 20px; right: 30px; color: #fff; font-size: 2em; cursor: pointer; }
+    .name { font-size: 30px; font-weight: 700; color: #1a1a2e; margin-bottom: 4px; padding-right: 110px; }
+    .tagline { color: #555; font-size: 15px; margin-bottom: 6px; padding-right: 110px; }
+    .target { color: #1a1a2e; font-size: 14px; margin-bottom: 8px; padding-right: 110px; }
+    .contacts { display: flex; flex-wrap: wrap; gap: 14px; font-size: 14px; color: #666; }
+    .contacts span { display: flex; align-items: center; gap: 5px; }
 
-        .container { max-width: 900px; margin: 0 auto; padding: 50px 24px; }
+    /* Section */
+    .section { margin-bottom: 28px; }
+    .section-title { font-size: 16px; font-weight: 700; color: #1a1a2e; border-left: 4px solid #1a1a2e; padding-left: 10px; margin-bottom: 14px; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* Hero */
-        .hero { text-align: center; margin-bottom: 60px; }
-        .hero h1 { font-size: 2.4em; color: #111; margin-bottom: 8px; }
-        .hero .subtitle { font-size: 1.1em; color: #666; margin-bottom: 16px; }
-        .hero .tags { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
-        .hero .tag { background: #f0f4ff; color: #2563eb; padding: 5px 14px; border-radius: 20px; font-size: 0.85em; }
-        .hero .contact-line { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; color: #888; font-size: 0.9em; }
-        .hero .contact-line span { display: flex; align-items: center; gap: 5px; }
+    /* Items */
+    .item { margin-bottom: 18px; }
+    .item-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; }
+    .item h3 { font-size: 15px; color: #222; }
+    .item .meta { font-size: 13px; color: #888; }
+    .item p { font-size: 14px; color: #555; }
 
-        /* Section */
-        .section { margin-bottom: 50px; }
-        .section-title { font-size: 1.2em; font-weight: 600; color: #111; border-left: 4px solid #2563eb; padding-left: 12px; margin-bottom: 24px; }
+    /* Skills */
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .skill-tag { background: #f0f0f0; color: #444; padding: 4px 12px; border-radius: 4px; font-size: 13px; }
+    .skill-tag-learn { background: #fafafa; color: #777; border: 1px dashed #ccc; }
+    .skill-group { margin-bottom: 10px; }
+    .skill-group-title { font-size: 13px; color: #888; margin-bottom: 6px; }
 
-        /* Card */
-        .card { background: #fff; border: 1px solid #eee; border-radius: 12px; padding: 28px; margin-bottom: 20px; transition: box-shadow 0.2s; }
-        .card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
-        .card h3 { font-size: 1.1em; color: #111; margin-bottom: 8px; }
-        .card .card-meta { font-size: 0.85em; color: #888; margin-bottom: 10px; }
-        .card p { color: #555; font-size: 0.95em; margin-bottom: 12px; }
-        .card .tech { display: flex; flex-wrap: wrap; gap: 8px; }
-        .card .tech span { background: #f5f5f5; color: #333; padding: 3px 10px; border-radius: 4px; font-size: 0.82em; }
-        .card .card-links { margin-top: 10px; font-size: 0.9em; }
-        .card .highlights { margin: 12px 0 0; padding-left: 18px; color: #555; font-size: 0.9em; }
-        .card .highlights li { margin-bottom: 4px; }
+    /* Exp items */
+    .exp-item { display: flex; gap: 14px; margin-bottom: 16px; }
+    .exp-time { font-size: 12px; color: #999; width: 60px; flex-shrink: 0; padding-top: 2px; }
+    .exp-content { flex: 1; border-left: 2px solid #ddd; padding-left: 14px; position: relative; }
+    .exp-content::before { content: ''; width: 8px; height: 8px; background: #1a1a2e; border-radius: 50%; position: absolute; left: -5px; top: 5px; }
+    .exp-content h4 { font-size: 14px; color: #222; margin-bottom: 3px; }
+    .exp-content p { font-size: 13px; color: #666; }
 
-        /* Video */
-        .video-wrap { background: #f0f0f0; border-radius: 10px; overflow: hidden; margin: 15px 0; }
-        .video-wrap video { width: 100%; display: block; }
+    /* Footer */
+    .footer { text-align: center; padding-top: 24px; border-top: 1px solid #eee; margin-top: 24px; }
+    .footer p { font-size: 13px; color: #999; }
+    .footer .portfolio-link { color: #1a1a2e; font-weight: 600; text-decoration: none; }
 
-        /* Skills */
-        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
-        .skill-item { background: #fff; border: 1px solid #eee; border-radius: 10px; padding: 20px; }
-        .skill-item h4 { font-size: 0.95em; color: #2563eb; margin-bottom: 6px; }
-        .skill-item p { font-size: 0.85em; color: #666; }
+    /* Project */
+    .project-tech { font-size: 12px; color: #888; margin-bottom: 6px; }
+    .project-desc { font-size: 13px; color: #555; }
+    .project-desc li { margin-bottom: 3px; }
 
-        /* Footer */
-        footer { text-align: center; padding: 30px 0; color: #aaa; font-size: 0.85em; border-top: 1px solid #eee; margin-top: 50px; }
+    /* Personal Eval */
+    .eval-item { font-size: 14px; color: #555; margin-bottom: 6px; padding-left: 10px; position: relative; }
+    .eval-item::before { content: '·'; position: absolute; left: 0; color: #1a1a2e; }
 
-        /* Resume specific */
-        .resume-nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; background: #fff; border-bottom: 1px solid #eee; }
-        .resume-back { color: #555; font-size: 0.9em; }
-        .resume-back:hover { color: #2563eb; }
-        .resume-header { text-align: center; padding: 40px 0 30px; border-bottom: 2px solid #2563eb; margin-bottom: 36px; }
-        .resume-header h1 { font-size: 2em; color: #111; margin-bottom: 6px; }
-        .resume-header .sub { color: #666; font-size: 0.95em; margin-bottom: 14px; }
-        .resume-header .contact-row { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; color: #555; font-size: 0.88em; }
-        .resume-section { margin-bottom: 28px; }
-        .resume-section h2 { font-size: 1em; color: #111; border-left: 3px solid #2563eb; padding-left: 10px; margin-bottom: 14px; }
-        .resume-item { margin-bottom: 14px; }
-        .resume-item .rheader { display: flex; justify-content: space-between; margin-bottom: 3px; }
-        .resume-item .rheader h3 { font-size: 0.95em; color: #222; }
-        .resume-item .rheader span { font-size: 0.82em; color: #888; }
-        .resume-item p { font-size: 0.88em; color: #555; }
-        .resume-skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-        .resume-skill-tag { background: #f0f4ff; color: #2563eb; padding: 2px 10px; border-radius: 4px; font-size: 0.8em; }
-        .resume-eval-item { font-size: 0.9em; color: #444; margin-bottom: 5px; padding-left: 10px; position: relative; }
-        .resume-eval-item::before { content: '·'; position: absolute; left: 0; color: #2563eb; }
-
-        @media (max-width: 600px) {
-            .nav { flex-wrap: wrap; gap: 12px; padding: 15px 20px; }
-            .hero h1 { font-size: 1.8em; }
-            .container { padding: 30px 16px; }
-        }
-    </style>
+    @media (max-width: 600px) {
+      .container { padding: 30px 24px; margin: 20px; }
+      .contacts { flex-direction: column; gap: 6px; }
+      .photo-wrap { position: static; margin-bottom: 15px; }
+      .name, .tagline, .target { padding-right: 0; }
+    }
+  </style>
 </head>
 <body>
-    <!-- Portfolio Index -->
-    <nav class="nav">
-        <span class="nav-brand">特列努尔</span>
-        <div class="nav-links">
-            <a href="#about">关于</a>
-            <a href="#projects">项目</a>
-            <a href="#skills">技能</a>
-            <a href="#contact">联系</a>
-        </div>
-        <a href="resume.html" target="_blank" class="nav-resume">📄 简历</a>
-    </nav>
+  <div class="photo-full" id="photoModal" onclick="closePhoto()">
+    <span class="close" onclick="closePhoto()">×</span>
+    <img src="photo.jpg" alt="证件照">
+  </div>
+  <script>
+    function expandPhoto() { document.getElementById('photoModal').style.display = 'flex'; }
+    function closePhoto() { document.getElementById('photoModal').style.display = 'none'; }
+  </script>
 
-    <div class="container">
-        <!-- Hero -->
-        <section class="hero" id="about">
-            <h1>特列努尔</h1>
-            <p class="subtitle">南京邮电大学 · 物联网学院 · 网络工程 · 2025级 · 大二</p>
-            <div class="tags">
-                <span class="tag">Java后端</span>
-                <span class="tag">AI应用开发</span>
-                <span class="tag">全栈项目实践</span>
-            </div>
-            <div class="contact-line">
-                <span>📱 18761851809</span>
-                <span>📧 1079086024@qq.com</span>
-                <span>🏠 南京</span>
-                <span><a href="https://github.com/Teku715" target="_blank">GitHub</a></span>
-                <span><a href="resume.html" target="_blank">在线简历</a></span>
-            </div>
-        </section>
+  <div class="container">
 
-        <!-- Projects -->
-        <section class="section" id="projects">
-            <h2 class="section-title">项目经历</h2>
-
-            <div class="card">
-                <h3>🎨 丝路声绘 · AI 语音绘图</h3>
-                <p class="card-meta">七牛云 XEngineer 第四批 · 2026.06 · 独立开发者</p>
-                <p>哈萨克语 + 汉语纯语音绘图：为丝路草原场景上色、绘制毡房/太阳/树，支持声绘剧场回放。</p>
-                <ul class="highlights">
-                    <li>本地 Python Whisper 哈萨克语 ASR + 指令映射 + 误听纠正</li>
-                    <li>纯语音控制 Canvas，丝路模式 / 工坊模式，回放与导出</li>
-                </ul>
-                <div class="tech">
-                    <span>HTML5 Canvas</span>
-                    <span>Python Whisper</span>
-                    <span>Web Speech API</span>
-                    <span>规则引擎</span>
-                </div>
-                <p class="card-links">
-                    <a href="https://github.com/Teku715/ai-voice-draw" target="_blank">GitHub 源码</a>
-                    &nbsp;·&nbsp;
-                    <a href="https://www.bilibili.com/video/BV19hJA67Ehu/" target="_blank">B 站演示</a>
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>🎙️ SpeakMate · AI 英语口语陪练</h3>
-                <p class="card-meta">开源项目 · 2026.06 · 独立后端</p>
-                <p>独立 Spring Boot 后端，集成 SenseVoice 与 Qwen2.5，实现多场景口语练习全流程。</p>
-                <ul class="highlights">
-                    <li>8 个 REST 接口，JPA 持久化会话/消息，LLM 输出容错</li>
-                    <li>录音→ASR→对话→4 维评测→总结，覆盖 5 类场景</li>
-                </ul>
-                <div class="tech">
-                    <span>Java / Spring Boot</span>
-                    <span>Spring Data JPA</span>
-                    <span>硅基流动 SenseVoice</span>
-                    <span>硅基流动 Qwen2.5</span>
-                </div>
-                <p class="card-links">
-                    <a href="https://github.com/Teku715/ai-english-tutor" target="_blank">GitHub 源码</a>
-                    &nbsp;·&nbsp;
-                    <a href="https://www.bilibili.com/video/BV1wcEp62EW9/" target="_blank">B 站演示</a>
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>📚 WordCraft · 英语闪卡背诵 API</h3>
-                <p class="card-meta">个人项目 · 2026.06 · 独立后端</p>
-                <p>JWT 登录、卡组管理、间隔重复算法。与 SpeakMate 形成「口语 + 词汇」互补。</p>
-                <ul class="highlights">
-                    <li>10 个 REST 接口，JWT 鉴权 + BCrypt + 4 表 JPA 持久化</li>
-                    <li>pass/fail 驱动 1→30 天间隔重复策略</li>
-                </ul>
-                <div class="tech">
-                    <span>Spring Boot</span>
-                    <span>JWT</span>
-                    <span>Spring Data JPA</span>
-                    <span>H2 / MySQL</span>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3>🤖 兴享智家 · 校园课程助手智能体</h3>
-                <p class="card-meta">中兴捧月 · 2026.05 · 参赛作品</p>
-                <p>独立完成前后端开发，接入 Qwen2.5-7B 实现 AI 对话，支持查课程表、查成绩与智能问答。</p>
-                <ul class="highlights">
-                    <li>后端 RESTful 接口 + Vue3 前端完整联调</li>
-                    <li>完成从需求分析、接口设计到上线的完整开发流程</li>
-                </ul>
-                <div class="tech">
-                    <span>Java / Spring Boot</span>
-                    <span>Vue3 + Element Plus</span>
-                    <span>硅基流动 Qwen2.5</span>
-                    <span>Vite + Axios</span>
-                </div>
-                <details class="video-wrap" style="background:#f0f0f0;border-radius:10px;padding:12px;margin:12px 0;">
-                    <summary style="cursor:pointer;color:#2563eb;font-size:0.9em;user-select:none;">▶ 点击播放演示视频</summary>
-                    <video controls style="width:100%;border-radius:6px;margin-top:10px;">
-                        <source src="demo.mp4" type="video/mp4">
-                        您的浏览器不支持 video 标签
-                    </video>
-                </details>
-            </div>
-
-            <div class="card">
-                <h3>🎓 CStudyMate · C语言 AI 学习助手</h3>
-                <p class="card-meta">星火工作室考核 · 2026.05</p>
-                <p>面向大学生的 C 语言智能问答系统，接入大模型实现结构化讲解与练习闭环。</p>
-                <ul class="highlights">
-                    <li>Spring Boot + MyBatis 后端，Vue3 前端完成 AI 问答与学情统计</li>
-                    <li>设计结构化 Prompt，输出概念 / 原理 / 代码 / 易错点</li>
-                </ul>
-                <div class="tech">
-                    <span>Spring Boot</span>
-                    <span>Vue3 + Element Plus</span>
-                    <span>MyBatis / H2</span>
-                    <span>硅基流动 Qwen2.5</span>
-                    <span>Vite</span>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3>📚 TLIAS 智能学习平台</h3>
-                <p class="card-meta">课程项目 · 2026.03</p>
-                <p>基于 Spring Boot + Vue3 的管理平台，重点实践认证鉴权与后端工程化能力。</p>
-                <ul class="highlights">
-                    <li>JWT 登录认证 + Filter 接口权限拦截</li>
-                    <li>Spring AOP 统一记录操作日志，完成部门与员工管理模块</li>
-                </ul>
-                <div class="tech">
-                    <span>Spring Boot</span>
-                    <span>Vue3</span>
-                    <span>JWT</span>
-                    <span>Spring AOP</span>
-                    <span>MySQL</span>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3>🏠 老人信息管理系统</h3>
-                <p class="card-meta">计算机设计大赛 · 2026.04</p>
-                <p>独立完成 Java 后端开发，设计并实现老人信息管理 REST API。</p>
-                <ul class="highlights">
-                    <li>提供 5 个 REST API 接口（增删改查）</li>
-                    <li>MySQL 数据持久化，规范接口设计与异常处理</li>
-                </ul>
-                <div class="tech">
-                    <span>Java</span>
-                    <span>Spring Boot</span>
-                    <span>MySQL</span>
-                    <span>RESTful API</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- Skills -->
-        <section class="section" id="skills">
-            <h2 class="section-title">技术技能</h2>
-            <div class="skills-grid">
-                <div class="skill-item">
-                    <h4>☕ Java 后端</h4>
-                    <p>Spring Boot、RESTful API、MySQL、MyBatis、JWT、Spring AOP</p>
-                </div>
-                <div class="skill-item">
-                    <h4>🤖 AI & 大模型</h4>
-                    <p>硅基流动 Qwen2.5、SenseVoice 语音识别、AI 辅助编程、Copilot、Coze</p>
-                </div>
-                <div class="skill-item">
-                    <h4>🖥️ 前端</h4>
-                    <p>Vue3、Element Plus、Vite、Axios、HTML / CSS / JavaScript</p>
-                </div>
-                <div class="skill-item">
-                    <h4>🐧 工具</h4>
-                    <p>Git、Docker、Maven、IDEA、Linux 命令行</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Education -->
-        <section class="section" id="education">
-            <h2 class="section-title">教育背景</h2>
-            <div class="card">
-                <h3>🎓 南京邮电大学</h3>
-                <p class="card-meta">2025级 · 大二</p>
-                <p>物联网学院 · 网络工程 &nbsp;|&nbsp; GPA 3.15 / 4.0 &nbsp;|&nbsp; 英语四级已通过</p>
-            </div>
-        </section>
-
-        <!-- Contact -->
-        <section class="section" id="contact">
-            <h2 class="section-title">联系</h2>
-            <div class="card">
-                <p>📱 <a href="tel:18761851809">18761851809</a></p>
-                <p>📧 <a href="mailto:1079086024@qq.com">1079086024@qq.com</a></p>
-                <p>🔗 <a href="https://github.com/Teku715" target="_blank">GitHub</a></p>
-                <p style="margin-top:12px; color:#888; font-size:0.9em;">意向方向：Java 后端 · AI 应用开发</p>
-            </div>
-        </section>
-
-        <footer>
-            <p>© 2026 特列努尔 &nbsp;|&nbsp; <a href="resume.html" target="_blank">📄 在线简历</a></p>
-        </footer>
+    <!-- Header -->
+    <div class="header">
+      <div class="photo-wrap" onclick="expandPhoto()">
+        <img src="photo.jpg" alt="证件照" class="photo">
+        <div class="photo-hint">点击放大</div>
+      </div>
+      <div class="name">特列努尔</div>
+      <div class="tagline">南京邮电大学 · 物联网学院 · 网络工程 · 大二</div>
+      <div class="target">🎯 意向方向：Java 后端 · AI 应用开发</div>
+      <div class="contacts">
+        <span>📱 18761851809</span>
+        <span>📧 1079086024@qq.com</span>
+        <span>🔗 <a href="https://teku715.github.io/portfolio/" style="color:#555;">作品集</a></span>
+        <span>🐱 <a href="https://github.com/Teku715" style="color:#555;">GitHub</a></span>
+      </div>
     </div>
+
+    <!-- Education -->
+    <div class="section">
+      <div class="section-title">教育背景</div>
+      <div class="item">
+        <div class="item-header">
+          <h3>南京邮电大学</h3>
+          <span class="meta">2025级 · 大二</span>
+        </div>
+        <p>物联网学院 · 网络工程 &nbsp;|&nbsp; GPA 3.15 / 4.0</p>
+        <p>📝 英语四级已通过</p>
+      </div>
+    </div>
+
+    <!-- Skills -->
+    <div class="section">
+      <div class="section-title">专业技能</div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">已掌握（项目中有落地）</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Java 基础</span>
+          <span class="skill-tag">Spring Boot</span>
+          <span class="skill-tag">RESTful API</span>
+          <span class="skill-tag">Spring Data JPA</span>
+          <span class="skill-tag">MySQL / H2</span>
+          <span class="skill-tag">JWT 鉴权</span>
+          <span class="skill-tag">Git / Maven</span>
+          <span class="skill-tag">Qwen2.5 API 集成</span>
+          <span class="skill-tag">SenseVoice ASR</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">学习中（持续加强）</div>
+        <div class="skill-tags">
+          <span class="skill-tag skill-tag-learn">Redis</span>
+          <span class="skill-tag skill-tag-learn">JVM / 并发基础</span>
+          <span class="skill-tag skill-tag-learn">消息队列</span>
+          <span class="skill-tag skill-tag-learn">RAG / Agent</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">其他</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Vue3 联调</span>
+          <span class="skill-tag">英语四级</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Competition -->
+    <div class="section">
+      <div class="section-title">竞赛经历</div>
+      <p class="project-desc" style="margin-bottom:6px;">2026.06 · 七牛 XEngineer 第四批 72h · 丝路声绘（AI 语音绘图）</p>
+      <p class="project-desc">2026.05 · 中兴捧月 · 校园 AI 课程助手（兴享智家，14 天全栈）</p>
+    </div>
+
+    <!-- Projects -->
+    <div class="section">
+      <div class="section-title">项目经历</div>
+
+      <div class="item" style="margin-bottom:20px;">
+        <div class="item-header">
+          <h3>丝路声绘 · AI 语音绘图（七牛 XEngineer 第四批）</h3>
+          <span class="meta">2026.06 · 72h · 独立开发者</span>
+        </div>
+        <div class="project-tech">技术栈：HTML5 Canvas · Python Whisper · Web Speech API · 规则引擎 · 指令映射</div>
+        <ul class="project-desc">
+          <li><strong>项目背景：</strong>第四批赛题要求 72h 交付可演示的多语种语音创作产品；结合哈萨克族背景，做「丝路草原神笔」——纯语音为灰白场景上色、绘制并回放</li>
+          <li><strong>项目职责：</strong>独立完成产品设计与全栈开发；本地 Python Whisper 实现哈萨克语 ASR；设计 kazakh-lexicon 指令映射与 fuzzy-zh 误听纠正；实现丝路场景着色、毡房/太阳/树绘制、声绘剧场逐步回放与导出</li>
+          <li><strong>项目成果：</strong>72h 交付「语音指令→Canvas 绘制→回放→导出」全链路；提交 DESIGN.md（计划 vs 实现）；<a href="https://github.com/Teku715/ai-voice-draw" style="color:#1a1a2e;">GitHub 开源</a> + <a href="https://www.bilibili.com/video/BV19hJA67Ehu/" style="color:#1a1a2e;">B 站 Demo</a></li>
+        </ul>
+      </div>
+
+      <div class="item" style="margin-bottom:20px;">
+        <div class="item-header">
+          <h3>SpeakMate · AI 英语口语陪练（开源项目）</h3>
+          <span class="meta">2026.06 · 独立后端</span>
+        </div>
+        <div class="project-tech">技术栈：Spring Boot · JPA · SenseVoice · Qwen2.5 · RESTful API</div>
+        <ul class="project-desc">
+          <li><strong>项目背景：</strong>场景化 AI 口语练习产品；需打通语音输入、多轮对话与课后评测，非教程类 CRUD 项目</li>
+          <li><strong>项目职责：</strong>独立负责后端，设计 <strong>8 个 REST 接口</strong>；用 JPA 持久化会话/消息（2 表），解决纯内存重启丢数据问题；集成 SenseVoice multipart 上传 + Qwen 对话，3 轮上下文截断与 LLM 输出容错（Sanitizer + fallback）</li>
+          <li><strong>项目成果：</strong>交付「录音→ASR→对话→4 维评测→总结」全链路；<a href="https://github.com/Teku715/ai-english-tutor" style="color:#1a1a2e;">GitHub 开源</a> · <a href="https://www.bilibili.com/video/BV1wcEp62EW9/" style="color:#1a1a2e;">B 站 Demo</a></li>
+        </ul>
+        <p class="project-desc" style="margin-top:6px;">
+          <a href="https://teku715.github.io/portfolio/" style="color:#1a1a2e;">在线 Demo</a>
+          &nbsp;·&nbsp;
+          <a href="https://github.com/Teku715/ai-english-tutor" style="color:#1a1a2e;">GitHub</a>
+        </p>
+      </div>
+
+      <div class="item" style="margin-bottom:20px;">
+        <div class="item-header">
+          <h3>WordCraft · 英语闪卡背诵 API（个人项目）</h3>
+          <span class="meta">2026.06 · 独立开发</span>
+        </div>
+        <div class="project-tech">技术栈：Spring Boot · JWT · JPA · BCrypt · H2/MySQL · RESTful API</div>
+        <ul class="project-desc">
+          <li><strong>项目背景：</strong>配合 SpeakMate 口语练习，需独立的单词背诵能力；要求用户登录、卡组管理与复习调度</li>
+          <li><strong>项目职责：</strong>设计 <strong>10 个 REST 接口</strong>；JWT + Interceptor 实现鉴权，BCrypt 存储密码；4 表 JPA 建模；实现间隔重复算法（pass 1/2/4/7/15/30 天，fail 4 小时重现）</li>
+          <li><strong>项目成果：</strong>curl 跑通注册→建卡组→加词→背诵→统计全链路；统一异常处理与参数校验，支持 H2/MySQL 切换</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Personal Eval -->
+    <div class="section">
+      <div class="section-title">个人评价</div>
+      <div class="item">
+        <p class="eval-item">2029 届大一，意向 Java 后端 + AI 应用；3 个可演示项目均含完整链路与开源代码，不堆砌教程课设</p>
+        <p class="eval-item">SpeakMate / WordCraft 体现 Spring Boot + JPA + JWT 后端能力；丝路声绘体现多语种语音产品创新与 72h 交付力</p>
+        <p class="eval-item">暑假 7–8 月可全职实习（南京/上海）；可提供 GitHub 源码、B 站 Demo 与现场接口演示</p>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <p>🎯 Java 后端开发实习 · 2029 届 · 7–8 月可全职 · 南京/上海 &nbsp;|&nbsp; <a href="https://teku715.github.io/portfolio/" class="portfolio-link">在线作品集</a></p>
+    </div>
+
+  </div>
 </body>
 </html>
