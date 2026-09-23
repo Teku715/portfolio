@@ -38,6 +38,7 @@
     /* Skills */
     .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
     .skill-tag { background: #f0f0f0; color: #444; padding: 4px 12px; border-radius: 4px; font-size: 13px; }
+    .skill-tag-learn { background: #fafafa; color: #777; border: 1px dashed #ccc; }
     .skill-group { margin-bottom: 10px; }
     .skill-group-title { font-size: 13px; color: #888; margin-bottom: 6px; }
 
@@ -90,8 +91,8 @@
         <div class="photo-hint">点击放大</div>
       </div>
       <div class="name">特列努尔</div>
-      <div class="tagline">南京邮电大学 · 物联网学院 · 网络工程 · 大一</div>
-      <div class="target">🎯 意向岗位：Java 后端开发实习生 · 南京 / 可远程</div>
+      <div class="tagline">南京邮电大学 · 物联网学院 · 网络工程 · 大二</div>
+      <div class="target">🎯 意向方向：Java 后端 · AI 应用开发</div>
       <div class="contacts">
         <span>📱 18761851809</span>
         <span>📧 1079086024@qq.com</span>
@@ -106,7 +107,7 @@
       <div class="item">
         <div class="item-header">
           <h3>南京邮电大学</h3>
-          <span class="meta">2025级 · 大一</span>
+          <span class="meta">2025级 · 大二</span>
         </div>
         <p>物联网学院 · 网络工程 &nbsp;|&nbsp; GPA 3.15 / 4.0</p>
         <p>📝 英语四级已通过</p>
@@ -118,39 +119,44 @@
       <div class="section-title">专业技能</div>
 
       <div class="skill-group">
-        <div class="skill-group-title">Java后端</div>
+        <div class="skill-group-title">已掌握（项目中有落地）</div>
         <div class="skill-tags">
+          <span class="skill-tag">Java 基础</span>
           <span class="skill-tag">Spring Boot</span>
           <span class="skill-tag">RESTful API</span>
-          <span class="skill-tag">MySQL</span>
-          <span class="skill-tag">MyBatis</span>
-          <span class="skill-tag">JWT</span>
-          <span class="skill-tag">Spring AOP</span>
+          <span class="skill-tag">Spring Data JPA</span>
+          <span class="skill-tag">MySQL / H2</span>
+          <span class="skill-tag">JWT 鉴权</span>
+          <span class="skill-tag">Git / Maven</span>
+          <span class="skill-tag">Qwen2.5 API 集成</span>
+          <span class="skill-tag">SenseVoice ASR</span>
         </div>
       </div>
 
       <div class="skill-group">
-        <div class="skill-group-title">AI & 大模型</div>
+        <div class="skill-group-title">学习中（持续加强）</div>
         <div class="skill-tags">
-          <span class="skill-tag">硅基流动 Qwen2.5</span>
-          <span class="skill-tag">SenseVoice 语音识别</span>
-          <span class="skill-tag">AI 辅助编程</span>
-          <span class="skill-tag">GitHub Copilot</span>
-          <span class="skill-tag">Coze 平台</span>
+          <span class="skill-tag skill-tag-learn">Redis</span>
+          <span class="skill-tag skill-tag-learn">JVM / 并发基础</span>
+          <span class="skill-tag skill-tag-learn">消息队列</span>
+          <span class="skill-tag skill-tag-learn">RAG / Agent</span>
         </div>
       </div>
 
       <div class="skill-group">
-        <div class="skill-group-title">前端 & 工具</div>
+        <div class="skill-group-title">其他</div>
         <div class="skill-tags">
-          <span class="skill-tag">Vue3</span>
-          <span class="skill-tag">Element Plus</span>
-          <span class="skill-tag">Vite</span>
-          <span class="skill-tag">Git</span>
-          <span class="skill-tag">Docker</span>
-          <span class="skill-tag">Maven</span>
+          <span class="skill-tag">Vue3 联调</span>
+          <span class="skill-tag">英语四级</span>
         </div>
       </div>
+    </div>
+
+    <!-- Competition -->
+    <div class="section">
+      <div class="section-title">竞赛经历</div>
+      <p class="project-desc" style="margin-bottom:6px;">2026.06 · 七牛 XEngineer 第四批 72h · 丝路声绘（AI 语音绘图）</p>
+      <p class="project-desc">2026.05 · 中兴捧月 · 校园 AI 课程助手（兴享智家，14 天全栈）</p>
     </div>
 
     <!-- Projects -->
@@ -159,73 +165,45 @@
 
       <div class="item" style="margin-bottom:20px;">
         <div class="item-header">
-          <h3>七牛云 XEngineer · 丝路声绘 · Silk VoiceBrush（AI 英语口语陪练）</h3>
-          <span class="meta">2026.06</span>
+          <h3>丝路声绘 · AI 语音绘图（七牛 XEngineer 第四批）</h3>
+          <span class="meta">2026.06 · 72h · 独立开发者</span>
         </div>
-        <div class="project-tech">Java / Spring Boot / SenseVoice / Qwen2.5 / HTML / CSS / JavaScript</div>
+        <div class="project-tech">技术栈：HTML5 Canvas · Python Whisper · Web Speech API · 规则引擎 · 指令映射</div>
         <ul class="project-desc">
-          <li>独立完成后端架构，集成 SenseVoice 语音识别与 Qwen 大模型，实现多场景口语练习全流程</li>
-          <li>设计场景对话、按住说话、表达评测、课后总结等核心模块，完成前后端联调与部署</li>
-          <li>支持面试 / 餐厅 / 会议 / 旅行 / 购物 5 类场景，涵盖 ASR、TTS、角色扮演与打字机回复</li>
+          <li><strong>项目背景：</strong>第四批赛题要求 72h 交付可演示的多语种语音创作产品；结合哈萨克族背景，做「丝路草原神笔」——纯语音为灰白场景上色、绘制并回放</li>
+          <li><strong>项目职责：</strong>独立完成产品设计与全栈开发；本地 Python Whisper 实现哈萨克语 ASR；设计 kazakh-lexicon 指令映射与 fuzzy-zh 误听纠正；实现丝路场景着色、毡房/太阳/树绘制、声绘剧场逐步回放与导出</li>
+          <li><strong>项目成果：</strong>72h 交付「语音指令→Canvas 绘制→回放→导出」全链路；提交 DESIGN.md（计划 vs 实现）；<a href="https://github.com/Teku715/ai-voice-draw" style="color:#1a1a2e;">GitHub 开源</a> + <a href="https://www.bilibili.com/video/BV19hJA67Ehu/" style="color:#1a1a2e;">B 站 Demo</a></li>
+        </ul>
+      </div>
+
+      <div class="item" style="margin-bottom:20px;">
+        <div class="item-header">
+          <h3>SpeakMate · AI 英语口语陪练（开源项目）</h3>
+          <span class="meta">2026.06 · 独立后端</span>
+        </div>
+        <div class="project-tech">技术栈：Spring Boot · JPA · SenseVoice · Qwen2.5 · RESTful API</div>
+        <ul class="project-desc">
+          <li><strong>项目背景：</strong>场景化 AI 口语练习产品；需打通语音输入、多轮对话与课后评测，非教程类 CRUD 项目</li>
+          <li><strong>项目职责：</strong>独立负责后端，设计 <strong>8 个 REST 接口</strong>；用 JPA 持久化会话/消息（2 表），解决纯内存重启丢数据问题；集成 SenseVoice multipart 上传 + Qwen 对话，3 轮上下文截断与 LLM 输出容错（Sanitizer + fallback）</li>
+          <li><strong>项目成果：</strong>交付「录音→ASR→对话→4 维评测→总结」全链路；<a href="https://github.com/Teku715/ai-english-tutor" style="color:#1a1a2e;">GitHub 开源</a> · <a href="https://www.bilibili.com/video/BV1wcEp62EW9/" style="color:#1a1a2e;">B 站 Demo</a></li>
         </ul>
         <p class="project-desc" style="margin-top:6px;">
-          <a href="https://github.com/Teku715/ai-english-tutor" style="color:#1a1a2e;">GitHub</a>
+          <a href="https://teku715.github.io/portfolio/" style="color:#1a1a2e;">在线 Demo</a>
           &nbsp;·&nbsp;
-          <a href="https://teku715.github.io/portfolio/" style="color:#1a1a2e;">作品集演示</a>
+          <a href="https://github.com/Teku715/ai-english-tutor" style="color:#1a1a2e;">GitHub</a>
         </p>
       </div>
 
       <div class="item" style="margin-bottom:20px;">
         <div class="item-header">
-          <h3>中兴捧月 · 兴享智家（校园课程助手智能体）</h3>
-          <span class="meta">2026.05</span>
+          <h3>WordCraft · 英语闪卡背诵 API（个人项目）</h3>
+          <span class="meta">2026.06 · 独立开发</span>
         </div>
-        <div class="project-tech">Java / Spring Boot / Vue3 / Element Plus / 硅基流动 Qwen2.5 / Vite</div>
+        <div class="project-tech">技术栈：Spring Boot · JWT · JPA · BCrypt · H2/MySQL · RESTful API</div>
         <ul class="project-desc">
-          <li>独立完成前后端开发，接入 Qwen2.5-7B 实现 AI 对话，支持查课程表、查成绩、智能问答</li>
-          <li>后端提供 RESTful 接口，前端基于 Vue3 + Element Plus 完成交互与数据展示</li>
-          <li>完成从需求分析、接口设计到联调上线的完整开发流程</li>
-        </ul>
-        <p class="project-desc" style="margin-top:6px;">
-          <a href="https://teku715.github.io/portfolio/" style="color:#1a1a2e;">作品集演示</a>
-        </p>
-      </div>
-
-      <div class="item" style="margin-bottom:20px;">
-        <div class="item-header">
-          <h3>星火工作室考核 · CStudyMate C语言AI学伴</h3>
-          <span class="meta">2026.05</span>
-        </div>
-        <div class="project-tech">Java / Spring Boot / Vue3 / MyBatis / H2 / 硅基流动 API</div>
-        <ul class="project-desc">
-          <li>后端基于 Spring Boot + MyBatis 实现 RESTful API，前端完成 AI 问答、练习中心、学情统计等模块</li>
-          <li>接入 Qwen2.5-7B，设计结构化 Prompt，强制输出概念 / 原理 / 代码 / 易错点</li>
-          <li>实现问答历史、练习记录等学习闭环功能，完成前后端联调</li>
-        </ul>
-      </div>
-
-      <div class="item" style="margin-bottom:20px;">
-        <div class="item-header">
-          <h3>TLIAS 智能学习平台</h3>
-          <span class="meta">2026.03</span>
-        </div>
-        <div class="project-tech">Spring Boot / Vue3 / JWT / Spring AOP / MySQL</div>
-        <ul class="project-desc">
-          <li>实现基于 JWT 的用户登录认证与令牌鉴权，Filter 拦截未授权请求</li>
-          <li>使用 Spring AOP 统一记录操作日志，完成部门、员工等管理模块接口开发</li>
-          <li>独立完成前后端联调与功能测试</li>
-        </ul>
-      </div>
-
-      <div class="item" style="margin-bottom:20px;">
-        <div class="item-header">
-          <h3>计算机设计大赛 · 老人信息管理系统</h3>
-          <span class="meta">2026.04</span>
-        </div>
-        <div class="project-tech">Java / Spring Boot / MySQL / REST API</div>
-        <ul class="project-desc">
-          <li>独立完成 Java 后端开发，设计并实现 5 个 REST API 接口（增删改查）</li>
-          <li>使用 MySQL 完成数据持久化，规范接口设计与异常处理</li>
+          <li><strong>项目背景：</strong>配合 SpeakMate 口语练习，需独立的单词背诵能力；要求用户登录、卡组管理与复习调度</li>
+          <li><strong>项目职责：</strong>设计 <strong>10 个 REST 接口</strong>；JWT + Interceptor 实现鉴权，BCrypt 存储密码；4 表 JPA 建模；实现间隔重复算法（pass 1/2/4/7/15/30 天，fail 4 小时重现）</li>
+          <li><strong>项目成果：</strong>curl 跑通注册→建卡组→加词→背诵→统计全链路；统一异常处理与参数校验，支持 H2/MySQL 切换</li>
         </ul>
       </div>
     </div>
@@ -234,15 +212,15 @@
     <div class="section">
       <div class="section-title">个人评价</div>
       <div class="item">
-        <p class="eval-item">从新疆到南京独立求学，具备从需求分析到部署上线的完整项目经验</p>
-        <p class="eval-item">熟悉 AI 辅助编程工具（Cursor、Copilot、Coze），能结合大模型 API 快速完成业务开发</p>
-        <p class="eval-item">学习能力强，大一下学期自学 Spring Boot、Vue3、MyBatis 并落地多个全栈项目</p>
+        <p class="eval-item">2029 届大二，意向 Java 后端 + AI 应用；3 个可演示项目均含完整链路与开源代码，不堆砌教程课设</p>
+        <p class="eval-item">SpeakMate / WordCraft 体现 Spring Boot + JPA + JWT 后端能力；丝路声绘体现多语种语音产品创新与 72h 交付力</p>
+        <p class="eval-item">暑假 7–8 月可全职实习（南京/上海）；可提供 GitHub 源码、B 站 Demo 与现场接口演示</p>
       </div>
     </div>
 
     <!-- Footer -->
     <div class="footer">
-      <p>🎯 意向岗位：2026 暑假 Java 后端开发实习生 · 南京 / 可远程 &nbsp;|&nbsp; <a href="https://teku715.github.io/portfolio/" class="portfolio-link">在线作品集</a></p>
+      <p>🎯 Java 后端开发实习 · 2029 届 · 7–8 月可全职 · 南京/上海 &nbsp;|&nbsp; <a href="https://teku715.github.io/portfolio/" class="portfolio-link">在线作品集</a></p>
     </div>
 
   </div>
