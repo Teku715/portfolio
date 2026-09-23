@@ -103,7 +103,7 @@
         <!-- Hero -->
         <section class="hero" id="about">
             <h1>特列努尔</h1>
-            <p class="subtitle">南京邮电大学 · 物联网学院 · 网络工程 · 2025级 · 大一</p>
+            <p class="subtitle">南京邮电大学 · 物联网学院 · 网络工程 · 2025级 · 大二</p>
             <div class="tags">
                 <span class="tag">Java后端</span>
                 <span class="tag">AI应用开发</span>
@@ -123,16 +123,37 @@
             <h2 class="section-title">项目经历</h2>
 
             <div class="card">
-                <h3>🎙️ 丝路声绘 · Silk VoiceBrush（AI 英语口语陪练）</h3>
-                <p class="card-meta">七牛云 XEngineer · 2026.06 · 参赛作品</p>
-                <p>独立完成后端架构，集成 SenseVoice 语音识别与 Qwen 大模型，实现多场景口语练习全流程。</p>
+                <h3>🎨 丝路声绘 · AI 语音绘图</h3>
+                <p class="card-meta">七牛云 XEngineer 第四批 · 2026.06 · 独立开发者</p>
+                <p>哈萨克语 + 汉语纯语音绘图：为丝路草原场景上色、绘制毡房/太阳/树，支持声绘剧场回放。</p>
                 <ul class="highlights">
-                    <li>支持面试 / 餐厅 / 会议 / 旅行 / 购物 5 类场景</li>
-                    <li>涵盖按住说话、ASR、TTS、角色扮演、表达评测与课后总结</li>
+                    <li>本地 Python Whisper 哈萨克语 ASR + 指令映射 + 误听纠正</li>
+                    <li>纯语音控制 Canvas，丝路模式 / 工坊模式，回放与导出</li>
+                </ul>
+                <div class="tech">
+                    <span>HTML5 Canvas</span>
+                    <span>Python Whisper</span>
+                    <span>Web Speech API</span>
+                    <span>规则引擎</span>
+                </div>
+                <p class="card-links">
+                    <a href="https://github.com/Teku715/ai-voice-draw" target="_blank">GitHub 源码</a>
+                    &nbsp;·&nbsp;
+                    <a href="https://www.bilibili.com/video/BV19hJA67Ehu/" target="_blank">B 站演示</a>
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>🎙️ SpeakMate · AI 英语口语陪练</h3>
+                <p class="card-meta">开源项目 · 2026.06 · 独立后端</p>
+                <p>独立 Spring Boot 后端，集成 SenseVoice 与 Qwen2.5，实现多场景口语练习全流程。</p>
+                <ul class="highlights">
+                    <li>8 个 REST 接口，JPA 持久化会话/消息，LLM 输出容错</li>
+                    <li>录音→ASR→对话→4 维评测→总结，覆盖 5 类场景</li>
                 </ul>
                 <div class="tech">
                     <span>Java / Spring Boot</span>
-                    <span>HTML / CSS / JavaScript</span>
+                    <span>Spring Data JPA</span>
                     <span>硅基流动 SenseVoice</span>
                     <span>硅基流动 Qwen2.5</span>
                 </div>
@@ -141,13 +162,22 @@
                     &nbsp;·&nbsp;
                     <a href="https://www.bilibili.com/video/BV1wcEp62EW9/" target="_blank">B 站演示</a>
                 </p>
-                <details class="video-wrap" style="background:#f0f0f0;border-radius:10px;padding:12px;margin:12px 0;">
-                    <summary style="cursor:pointer;color:#2563eb;font-size:0.9em;user-select:none;">▶ 点击播放演示视频</summary>
-                    <video controls style="width:100%;border-radius:6px;margin-top:10px;">
-                        <source src="silk-voicebrush-demo.mp4" type="video/mp4">
-                        您的浏览器不支持 video 标签
-                    </video>
-                </details>
+            </div>
+
+            <div class="card">
+                <h3>📚 WordCraft · 英语闪卡背诵 API</h3>
+                <p class="card-meta">个人项目 · 2026.06 · 独立后端</p>
+                <p>JWT 登录、卡组管理、间隔重复算法。与 SpeakMate 形成「口语 + 词汇」互补。</p>
+                <ul class="highlights">
+                    <li>10 个 REST 接口，JWT 鉴权 + BCrypt + 4 表 JPA 持久化</li>
+                    <li>pass/fail 驱动 1→30 天间隔重复策略</li>
+                </ul>
+                <div class="tech">
+                    <span>Spring Boot</span>
+                    <span>JWT</span>
+                    <span>Spring Data JPA</span>
+                    <span>H2 / MySQL</span>
+                </div>
             </div>
 
             <div class="card">
@@ -252,7 +282,7 @@
             <h2 class="section-title">教育背景</h2>
             <div class="card">
                 <h3>🎓 南京邮电大学</h3>
-                <p class="card-meta">2025级 · 大一</p>
+                <p class="card-meta">2025级 · 大二</p>
                 <p>物联网学院 · 网络工程 &nbsp;|&nbsp; GPA 3.15 / 4.0 &nbsp;|&nbsp; 英语四级已通过</p>
             </div>
         </section>
@@ -264,7 +294,7 @@
                 <p>📱 <a href="tel:18761851809">18761851809</a></p>
                 <p>📧 <a href="mailto:1079086024@qq.com">1079086024@qq.com</a></p>
                 <p>🔗 <a href="https://github.com/Teku715" target="_blank">GitHub</a></p>
-                <p style="margin-top:12px; color:#888; font-size:0.9em;">意向岗位：2026 暑假 Java 后端开发实习生 · 南京 / 可远程</p>
+                <p style="margin-top:12px; color:#888; font-size:0.9em;">意向方向：Java 后端 · AI 应用开发</p>
             </div>
         </section>
 
